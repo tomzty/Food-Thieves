@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>WeOrder</title>
+    <title>WeOrder</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body style="margin:0px">
+<body style="margin:5px">
 
     <div id="NavBar" style="background-color:rgb(41, 216, 216);width:100%;height:80px;">
         <div style="float:left;align-content: center"><a href="index.html" >Logo</a></div>
-        <div style="text-align: center">Choose School</div>
         <div style="text-align: right"><a href="Views/profilePage.html">Profile</a></div>
+        <div style="text-align: right"><a href="Views/checkoutScreen.html">Cart</a></div>
     </div>
 
 <h1>Search School</h1>
-<div>
-
+<div class="masterView" style="align-content: center">
+    <form action="Views/restaurantList.html">
+        <input type="text" value="type in your school" id="schoolSelection">
+        <input type="submit" value="Submit">
+    </form>
 </div>
 
 </body>

@@ -3,20 +3,49 @@
 <head>
     <title>WeOrder</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <script src="../Scripts/restaurantListSCRIPT.js"></script>
 </head>
 
 <body style="margin:0px">
 
     <div id="NavBar" style="background-color:rgb(41, 216, 216);width:100%;height:80px;">
         <div style="float:left;align-content: center"><a href="../index.html" >Logo</a></div>
-        <div style="text-align: center">UCSD</div>
+        <div style="text-align: center">Choose School</div>
         <div style="text-align: right"><a href="profilePage.html">Profile</a></div>
+        <div style="text-align: right"><a href="checkoutScreen.html">Cart</a></div>
     </div>
 
     <h1>Restaurants near UCSD</h1>
-    <div> 
+    <div class="tableViewContainer">
+        <!--for now, table w/ 4 rows, will add this dynamically later-->
+        <table>
+            <tr>
+                <td>
+                    <img src="../Images/burger.jpg" alt="burger" height="42" width="42">
+                    <a href="menueList.html"> restaurant 1 </a>
+                </td>
+            </tr>
 
+            <tr>
+               <td>
+                   <img src="../Images/kbbq.jpeg" alt="kbbq" height="42" width="42">
+                   <a href="menueList.html"> restaurant 2 </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="../Images/ramen.jpg" alt="ramen" height="42" width="42">
+                    <a href="menueList.html"> restaurant 3 </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="../Images/vietnamese-pho.jpg" alt="pho" height="42" width="42">
+                    <a href="menueList.html"> restaurant 4 </a>
+                </td>
+            </tr>
+        </table>
     </div>
 
 </body>
