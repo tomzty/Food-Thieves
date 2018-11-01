@@ -32,3 +32,27 @@ td {
 tr:nth-child(even) {
     background-color: #8df7c5;
 }
+
+#NavBar{
+    width:100%;
+    height:70px;
+    background-color:#2699FB;
+    margin:0px;
+    color:white
+}
+
+
+
+.Button{
+    width:60px;
+    height:45px;
+    background-color:#2699FB;
+    border: none;
+    color:white
+}
+
+body{
+    background-color:#F1F9FF;
+    margin:0
+}
+
