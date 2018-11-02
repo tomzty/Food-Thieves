@@ -12,6 +12,13 @@ h1{
 a {
     font-family: Helvetica;
 }
+a:visited {
+    text-decoration: none;
+}
+a:link {
+    text-decoration: none;
+}
+
 #currentSchool {
     font-family: Helvetica;
     font-weight: bold;
