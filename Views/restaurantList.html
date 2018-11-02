@@ -5,29 +5,6 @@
     <link rel="stylesheet" type="text/css" href="../style.css">
     <script src="../Scripts/restaurantListSCRIPT.js"></script>
 
-    <style>
-        .item1 { grid-area: name; }
-        .item2 { grid-area: dish1; }
-        .item3 { grid-area: dish2; }
-        .item4 { grid-area: dish3; }
-        
-        .grid-container {
-            display: grid;
-            grid-template-areas:
-            'name name name name'
-            'dish1 dish2 dish3';
-            grid-gap: 10px;
-            background-color: #2196F3;
-            padding: 10px;
-        }
-        .grid-container > div {
-            background-color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            font-size: 20px;
-        } 
-
-    </style>
-
 </head>
 
 <body style="margin:0px">
@@ -42,9 +19,9 @@
     <h1>Restaurants near UCSD</h1>
     <div class="tableViewContainer">
         <!--for now, table w/ 4 rows, will add this dynamically later-->
-        <table style="width: 80%;" align="center">
-            <tr>
-                <td style="width:75px">
+        <table style="width: 90%;" align="center">
+            <tr style="padding-bottom:5em">
+                <td style="width:200px">
                    <p>Img of Restaurant 1</p> 
                 </td>
                 <td style="text-align:center">
@@ -86,7 +63,7 @@
                     <td style="width:75px">
                             <p>Img of Restaurant 2</p> 
                          </td>
-                         <td style="text-align:center">
+                         <td style="text-align:center;">
                              <!--want to add js popup modal to show details of food
                                  when user clicks on image-->
                              <div style="display:block;text-align: center">

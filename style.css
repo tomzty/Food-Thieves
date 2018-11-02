@@ -26,7 +26,8 @@ table {
 td {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 5px;
+    background-color:white
 }
 
 tr:nth-child(even) {
