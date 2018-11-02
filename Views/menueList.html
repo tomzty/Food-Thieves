@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <link rel="stylesheet" type="text/css" href="../style.css">
-<title></title>
+    <title>WeOrder</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script src="../Scripts/restaurantListSCRIPT.js"></script>
 </head>
 
 <body style="margin:0px">
 
-    <div id="NavBar">
+    <div id="NavBar" style="background-color:rgb(41, 216, 216);width:100%;height:80px;">
         <div style="float:left;align-content: center"><a href="../index.html" >Logo</a></div>
         <div style="text-align: center">Choose School</div>
         <div style="text-align: right"><a href="profilePage.html">Profile</a></div>
     </div>
 
-<h1>Menu</h1>
-<div>
+    <h1>Menu List</h1>
+    <div class="tableViewContainer">
+        <table>
+            <tr>
+                <td>
+                    <!--want to add js popup modal to show details of food 
+                        when user clicks on image-->
+                    <img src="../Images/burger.jpg" alt="burger" height="42" width="42">
+                    <a href="menueList.html"> restaurant 1 </a>
+                </td>
+            </tr>
 
-</div>
+            <tr>
+                <td>
+                    <img src="../Images/kbbq.jpeg" alt="kbbq" height="42" width="42">
+                    <a href="menueList.html"> restaurant 2 </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="../Images/ramen.jpg" alt="ramen" height="42" width="42">
+                    <a href="menueList.html"> restaurant 3 </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="../Images/vietnamese-pho.jpg" alt="pho" height="42" width="42">
+                    <a href="menueList.html"> restaurant 4 </a>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 </body>
 </html>
