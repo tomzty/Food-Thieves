@@ -48,6 +48,11 @@ tr:nth-child(even) {
     margin:0px;
     color:white
 }
+.navBarItem-right {
+    text-align: right;
+    padding-top: 15px;
+    padding-right: 10px;
+}
 
 
 
@@ -64,3 +69,54 @@ body{
     margin:0
 }
 
+.container {
+    align-content: center;
+}
+
+/*profile page styles*/
+.profileSubviewContainers {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#diet-tags > p {
+    font-family: Helvetica;
+    font-size: 15px;
+    font-weight: 200;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  #new-user-profile-pic {
+      align-content: center;
+  }
+
+input {
+    width: 90px;
+    height: 15px;
+    font-size: 10px;
+}
+#group-chat-container {
+    border: 1px solid grey;
+    padding: 5px;
+}
+#person-A-chat {
+    float: left;
+    border: 1px solid green;
+    background-color: rgb(87, 134, 87);
+    border-radius: 5px;
+}
+#person-B-chat {
+    float: right;
+    border: 1px solid #2699FB;
+    background-color: rgb(109, 187, 255);
+    border-radius: 5px;
+}
+ul {
+    list-style-type: none;
+    font-size: 12px;
+}
