@@ -3,7 +3,19 @@
 <head>
     <title>WeOrder</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="main.js"></script>
+    <script>
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+    });
+    
+    $(".js-example-placeholder-single").select2({
+    placeholder: "Select a state",
+    allowClear: true
+});
+    </script>
 </head>
 
 <body>
@@ -17,7 +29,14 @@
 <div class="masterView" style="align-content: center;margin-top: 15%">
     <h1>Search School</h1>
     <form action="Views/restaurantList.html">
-        <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection">
+       <!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
+
+       
+       <select style="width:50%;height: 40px" class="js-example-placeholder-single js-states form-control">
+            <option>UCSD</option>
+            <option>UCI</option>
+            <option>UCSB</option>
+        </select>
         <input class="Button"type="submit" value="Submit">
     </form>
 </div>
