@@ -51,17 +51,17 @@
 
 <body style="margin:0px">
 
-    <div id="NavBar">
-        <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
-            <a href="../index.html" >WeOrder</a>
-        </div>
-        <div class="navBarItem-right">
-            <a href="profilePage.html">Profile</a>
-        </div>
-        <div class="navBarItem-right">
-            <a href="checkoutScreen.html">Cart</a>
-        </div>
-    </div>
+        <div id="NavBar">
+                <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
+                    <a href="../index.html" >WeOrder</a>
+                </div>
+                <div style="text-align: right">
+                    <a href="profilePage.html">Profile</a>
+                </div>
+                <div style="text-align: right">
+                    <a href="checkoutScreen.html">Cart</a>
+                </div>
+            </div>        
 
     <h1>Restaurants near UCSD</h1>
     <div class="tableViewContainer">
@@ -103,8 +103,7 @@
                 </td>
             </tr>
 
-            <tr>
-                
+            <tr>  
                     <td style="width:75px">
                             <p>Img of Restaurant 2</p> 
                          </td>
@@ -154,17 +153,17 @@
                                  <h4>Menu Preview</h4>
                                  <div style="margin-top:10px">
                                          <figure style="display:inline-block;margin-right: 75px">
-                                             <img src="../Images/kbbq.jpeg" alt="burger" height="85px" width="100px">
+                                             <img src="../Images/kbbq.jpg" alt="burger" height="85px" width="100px">
                                              <figcaption style="text-align: center">Dish 1</figcaption>
                                          </figure>         
          
                                          <figure style="display:inline-block">
-                                             <img src="../Images/kbbq.jpeg" alt="burger" height="85px" width="100px" >
+                                             <img src="../Images/kbbq.jpg" alt="burger" height="85px" width="100px" >
                                              <figcaption style="text-align: center">Dish 2</figcaption>
                                          </figure>  
                                          
                                          <figure style="display:inline-block;margin-left: 75px">
-                                             <img src="../Images/kbbq.jpeg" alt="burger" height="85px" width="100px" >
+                                             <img src="../Images/kbbq.jpg" alt="burger" height="85px" width="100px" >
                                              <figcaption style="text-align: center;">Dish 3</figcaption>
                                          </figure>
                                  </div>
@@ -222,7 +221,6 @@
 
        <!-- The Modal -->
        <div id="myModal" class="modal">
-
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -247,13 +245,13 @@
         </div>
 
     <script>
-         $(".dish").on("click", function(){
-        $(".modal").css('display','block');
-    });
+        $(".dish").on("click", function(){
+            $(".modal").css('display','block');
+        });
 
-    $(".close").on("click",function(){
-        $(".modal").css('display','none')
-    });   
+        $(".close").on("click",function(){
+            $(".modal").css('display','none')
+        });   
         
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {

@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../style.css">
 <title></title>
+
+<style>
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+</style>
 </head>
 
 <body style="margin:0px">
@@ -19,10 +33,82 @@
         </div>
     </div>
 
-<h1>Confirmation Page</h1>
+<h1>Review Page</h1>
 <div>
-<!-- Create Gives a final review of the order-->
+    <table id="confirmation" style="width:90%" align="center">
+        <tr id="noItems">
+            <td>
+                <p style="text-align:center">No Items in cart</p>
+                <p style="text-align:center"><a href="restaurantList.html">Click here to return to Resturant page</a></p>
+            </td>
+        </tr>
+
+        <tr>
+            <!-- Testing with Bootstrap Designs-->
+            <td> 
+                <h2 style=text-align:center>Ramen (Using Bootstrap)</h2>
+                <div class="row">
+                        <div class="col-sm-3 col-md-2">
+                                <img src="../Images/ramen.jpg" alt="ramen" height="50px" width="100px">
+                        </div>
+                        
+                        <div class="col-sm-9 col-md-8">
+                            <h4>Price:</h4>
+                            <h4>Resturant:</h4>
+                            <h4>Ingredients:</h4>
+                        </div>
+                        
+                        <div class="col-sm-9 col-md-2" style="text-align:center">
+                            <form>
+                                <div>
+                                    <input type="number" name="partridge" id="partridge" min="1" value={{quantity}}>
+                                </div>
+                                <button style="display:inline-block" class="Button">Change Quantity</button>
+                            </form>
+                            <button style="margin-top:20px" class="Button removeItem">Remove Item</button>   
+                        </div>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
 
+<div id="itemPresent" style="width:50%;background-color:white;text-align:center;padding:15px;margin:0 auto">
+    <h3>Pick up Time</h3>
+    <p>TBD</p>
+    <h3>Delivery Instructions</h3>
+    <form>
+        <input type="text" name="instructions" style="width:500px;height:100px" value="">
+    </form>
+    <form action="paymentConfirmationPage.html">
+    <button style="text-align:center;margin:0 auto;" class="Button"> Confirm Purchase</button>
+    </form>
+</div>
+
+<!-- Template for Cart List-->
+<script id="confirmTemplate" type="text/x-handlebars-template">
+    <tr>
+        <td> 
+            <h3 style="text-align: center">{{dishname}} (Using Vanilla CSS)</h3>
+            <img style="float:left" src="{{dishimg}}" alt="{{dishname}}" height="100px" width="150px">
+            <div style="margin-left:18%">
+                <h4>Price:</h4>
+                <h4>Resturant:</h4>
+                <h4>Ingredients:</h4>
+            </div>
+            <form style="float:right;display:inline-block">
+                <div>
+                    <input type="number" name="partridge" id="partridge" min="1" value={{quantity}}>
+                </div>
+            <button style="display:inline-block" class="Button">Change Quantity</button>
+            </form>
+            <button style="text-align:center;float:right" class="Button removeItem">Remove Item</button>
+        </td>
+    </tr>
+</script>
+
+
+<script src="../handlebars-v4.0.12.js"></script>
+<script src="../checkout.js"></script>
 </body>
 </html>
