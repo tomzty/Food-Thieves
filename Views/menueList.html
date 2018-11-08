@@ -42,9 +42,9 @@
                     <form>
                             <div name="ok">
                                 <label for="name">Quantity</label>
-                                <input type="number" name="burger" id="dish1" min="0" value="1">
+                                <input type="number" name="burger" min="0" value="1">
                             </div>
-                            <button type="button" style="display:inline-block" id="bt2" class="Button addItem">Add to Cart</button>
+                            <button type="button" style="display:inline-block" name="burger" class="Button addItem">Add to Cart</button>
                         </form>     
                 </td>
                 
@@ -66,9 +66,9 @@
                                 <form>
                                         <div>
                                             <label for="name">Quantity</label>
-                                            <input type="number" name="kbbq" id="partridge" min="0" value="1">
+                                            <input type="number" name="kbbq" min="0" value="1">
                                         </div>
-                                            <button type="button" style="display:inline-block" class="Button addItem">Add to Cart</button>
+                                            <button type="button" style="display:inline-block" name="kbbq" class="Button addItem">Add to Cart</button>
                                     </form>
                         </td>
             </tr>
@@ -89,9 +89,9 @@
                                 <form>
                                         <div>
                                             <label for="name">Quantity</label>
-                                            <input type="number" name="ramen" id="partridge" min="0" value="1">
+                                            <input type="number" name="ramen" min="0" value="1">
                                         </div>
-                                            <button type="button" style="display:inline-block" class="Button addItem">Add to Cart</button>
+                                            <button type="button" style="display:inline-block" name="ramen" class="Button addItem">Add to Cart</button>
                                     </form>
                         </td>
             </tr>
@@ -112,9 +112,9 @@
                                 <form>
                                         <div>
                                             <label for="name">Quantity</label>
-                                            <input type="number" name="vietnamese-pho" id="burger" min="0" value="1">
+                                            <input type="number" name="vietnamese-pho" min="0" value="1">
                                         </div>
-                                            <button type="button" style="display:inline-block" class="Button addItem">Add to Cart</button>
+                                            <button type="button" style="display:inline-block" name="vietnamese-pho" class="Button addItem">Add to Cart</button>
                                     </form>
                         </td>
             </tr>
@@ -151,9 +151,9 @@
             <div>
                 <input type="number" name="partridge" id="partridge" min="1" value={{quantity}}>
             </div>
-        <button style="display:inline-block" class="Button">Change Quantity</button>
+            <button style="display:inline-block" name="{{dishname}}" class="Button changeQuant" type="button">Change Quantity</button>
         </form>
-        <button style="text-align:center" class="Button removeItem">Remove Item</button>
+        <button style="text-align:center" name="{{dishname}}" class="Button removeItem">Remove Item</button>
     </td>
 </script>
 

@@ -42,9 +42,10 @@
                 <p style="text-align:center"><a href="restaurantList.html">Click here to return to Resturant page</a></p>
             </td>
         </tr>
-
+        
+        <!-- Testing with Bootstrap Designs
         <tr>
-            <!-- Testing with Bootstrap Designs-->
+            
             <td> 
                 <h2 style=text-align:center>Ramen (Using Bootstrap)</h2>
                 <div class="row">
@@ -65,15 +66,17 @@
                                 </div>
                                 <button style="display:inline-block" class="Button">Change Quantity</button>
                             </form>
-                            <button style="margin-top:20px" class="Button removeItem">Remove Item</button>   
+                            <button style="margin-top:20px" name="ramen" class="Button removeItem">Remove Item</button>   
                         </div>
                 </div>
             </td>
         </tr>
+        -->
     </table>
 </div>
 
-<div id="itemPresent" style="width:50%;background-color:white;text-align:center;padding:15px;margin:0 auto">
+
+<div id="itemPresent" style="width:50%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:visible">
     <h3>Pick up Time</h3>
     <p>TBD</p>
     <h3>Delivery Instructions</h3>
@@ -95,20 +98,20 @@
                 <h4>Price:</h4>
                 <h4>Resturant:</h4>
                 <h4>Ingredients:</h4>
+                <button style="text-align:center;display:block" name="{{dishname}}" class="Button removeItem">Remove Item</button>
             </div>
-            <form style="float:right;display:inline-block">
+            <form style="float:right">
                 <div>
                     <input type="number" name="partridge" id="partridge" min="1" value={{quantity}}>
                 </div>
-            <button style="display:inline-block" class="Button">Change Quantity</button>
+                <button style="display:inline-block" class="Button">Change Quantity</button>
             </form>
-            <button style="text-align:center;float:right" class="Button removeItem">Remove Item</button>
         </td>
     </tr>
 </script>
 
-
 <script src="../handlebars-v4.0.12.js"></script>
 <script src="../checkout.js"></script>
+
 </body>
 </html>
