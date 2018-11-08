@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WeOrder</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="main.js"></script>
+    <script src="script1.js"></script>
+    <script>
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+    });
+    
+    $(".js-example-placeholder-single").select2({
+    placeholder: "Select a state",
+    allowClear: true
+});
+    </script>
+</head>
+
+<body>
+
+    <div id="NavBar">
+        <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
+            <a href="index.html" >WeOrder</a>
+        </div>
+        <div class="navBarItem-right">
+            <a href="Views/profilePage.html">Profile</a>
+        </div>
+        <div class="navBarItem-right">
+            <a href="Views/checkoutScreen.html">Cart</a>
+        </div>
+    </div>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="name"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+            <form class="login-form">
+                <input type="text" placeholder="username" id="username"/>
+                <input type="password" placeholder="password" id="password"/>
+                <button id = "submit" type = "button" onclick = "validate()">login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>
