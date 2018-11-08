@@ -50,3 +50,21 @@ $("#confirmation").on("click",'.removeItem',function(){
     } 
     
 });
+
+/* Change quantity of item (Still in progress) */
+$("#confirmation").on("click",'.changeQuant',function(){
+    // Retrieving Cart and current input value
+    var cartItem = JSON.parse(sessionStorage.getItem('cart'));  
+    var newQuant = $(this).siblings('div').children('input').val();
+    
+    //Looks for item in the storage and updates its quantity value
+    for(var i = 0; i < cartItem.length; i++){
+        if(cartItem[i].dishname == $(this).attr("name")){
+            cartItem[i].quantity = newQuant;
+            break;
+        }
+    }
+
+    //Updating Storage
+    sessionStorage.setItem('cart',JSON.stringify(cartItem));
+});

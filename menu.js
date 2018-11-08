@@ -97,7 +97,7 @@ $("#cartList").on("click",'.removeItem',function(){
 });
 
 /* Change quantity of item (Still in progress) */
-$("#cart").on("click",'.changeQuant',function(){
+$("#confirmation").on("click",'.changeQuant',function(){
     // Retrieving Cart and current input value
     var cartItem = JSON.parse(sessionStorage.getItem('cart'));  
     var newQuant = $(this).siblings('div').children('input').val();
