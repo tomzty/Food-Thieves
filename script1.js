@@ -7,7 +7,7 @@ function validate(){
 
 	if ( username == "FoodThieves" && password == "FoodThieves"){
 		alert ("Login successfully");
-		window.location = "http://google.com"; //redirecting to other page
+		window.location = "index.html"; //redirecting to other page
 		return false;
 	}
 	else{
