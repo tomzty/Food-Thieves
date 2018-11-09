@@ -26,7 +26,7 @@
         <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
             <a href="index.html" >WeOrder</a>
         </div>
-        <div class="navBarItem-right">
+        <div class="navBarItem-right user">
             <a href="Views/profilePage.html">Profile</a>
         </div>
         <div class="navBarItem-right">
@@ -42,15 +42,33 @@
                 <button>create</button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
-            <form class="login-form">
-                <input type="text" placeholder="username" id="username"/>
+            <form class="" action="index.html">
+                <input type="text" placeholder="username" id="username" value=""/>
                 <input type="password" placeholder="password" id="password"/>
-                <button id = "submit" type = "button" onclick = "validate()">login</button>
+                <button id = "submit" type = "submit">login</button>
                 <p class="message">Not registered? <a href="#">Create an account</a></p>
             </form>
         </div>
     </div>
 
+<script>
+$(".login-page").on("click",'#submit',function(){
+    // Retrieving cart
+    var user = [];
+    console.log("Hello");
+
+    var newUser = {
+        'name': $("#username").val(),
+        'allergic': '',
+        'favorite': ''
+    };
+
+    user.push(newUser);
+
+    // Updating Storage
+    sessionStorage.setItem('user',JSON.stringify(user));
+});
+</script>
 
 </body>
 </html>

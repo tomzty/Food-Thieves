@@ -1,6 +1,7 @@
 //Local Storage: Cart Data
 var cartData = JSON.parse(sessionStorage.getItem('cart'));
-console.log("cart data length =" + cartData.length);
+
+var validCart = JSON.parse(sessionStorage.getItem('cart'));
 
 //Handlebars Variables
 var source = $("#confirmTemplate").html();
@@ -9,7 +10,7 @@ var parentDiv = $("#confirmation");
 
 
 // No Items Message + confirmation button
-if(cartData.length != null || cartData.length != 0){
+if(validCart != null){
     $("#noItems").css('visibility','hidden'); 
 
     //Prints out current cart list
@@ -67,4 +68,20 @@ $("#confirmation").on("click",'.changeQuant',function(){
 
     //Updating Storage
     sessionStorage.setItem('cart',JSON.stringify(cartItem));
+});
+
+$("#confirm").on("click",'#conf',function(){
+
+    var instruc = [];
+    console.log("Hello");
+
+    var newInstruc = {
+        'instra': $('#instructions').val(),
+    };
+
+    instruc.push(newInstruc);
+
+    // Updating Storage
+    sessionStorage.setItem('instr',JSON.stringify(instruc));
+
 });
