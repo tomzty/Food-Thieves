@@ -78,13 +78,13 @@
 
 <div id="itemPresent" style="width:50%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:visible">
     <h3>Pick up Time</h3>
-    <p>TBD</p>
+    <p>11/22/18 at 12:00pm</p>
     <h3>Delivery Instructions</h3>
     <form>
-        <input type="text" name="instructions" style="width:500px;height:100px" value="">
+        <input type="text" id="instructions" style="width:500px;height:100px" value="">
     </form>
-    <form action="paymentConfirmationPage.html">
-    <button style="text-align:center;margin:0 auto;" class="Button"> Confirm Purchase</button>
+    <form action="paymentConfirmationPage.html" id="confirm">
+        <button style="text-align:center;margin:0 auto;" id="conf" class="Button"> Confirm Purchase</button>
     </form>
 </div>
 
@@ -112,6 +112,5 @@
 
 <script src="../handlebars-v4.0.12.js"></script>
 <script src="../checkout.js"></script>
-
 </body>
 </html>
