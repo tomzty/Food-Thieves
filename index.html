@@ -17,6 +17,7 @@
     allowClear: true
 });
     </script>
+
 </head>
 
 <body>
@@ -35,18 +36,19 @@
 
 <div class="masterView" style="align-content: center;margin-top: 15%">
     <h1>Search School</h1>
-    <form action="Views/restaurantList.html">
+    <form name='dropdown'>
        <!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
 
        
-       <select style="width:50%;height: 40px" class="js-example-placeholder-single js-states form-control">
-            <option>UCSD</option>
-            <option>UCI</option>
-            <option>UCSB</option>
+       <select id = "dropDownId" style="width:50%;height: 40px" class="js-example-placeholder-single js-states form-control">
+            <option value = "views/restaurantListUCSD.html">UCSD</option>
+            <option value = "views/restaurantListUCI.html">UCI</option>
+            <option value = "views/restaurantListUCSB.html">UCSB</option>
         </select>
-        <input class="Button"type="submit" value="Submit">
+        <input class="Button" type="submit" value="Submit" onclick="goToNewPage()">
     </form>
 </div>
+
 
 </body>
 </html>
