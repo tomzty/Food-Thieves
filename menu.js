@@ -119,15 +119,15 @@ $("#confirmation").on("click",'.changeQuant',function(){
 
 /* Original Cart Template
 <td> 
-                        <h3 style="text-align: center">Dish 1</h3>
-                        <img style="margin-left:auto;margin-right:auto" src="../Images/vietnamese-pho.jpg" alt="burger" height="100px" width="150px">
-                        <form method="POST" action="">
-                                <div>
-                                    <input type="number" name="vietnamese-pho" class="vietnamese-pho" min="1" value="1">
-                                </div>
-                                <button style="display:inline-block" class="Button changeQuant">Change Quantity</button>
-                            </form>
-                        <button style="text-align:center" class="Button removeItem">Remove Item</button>
-                    </td>   
+    <h3 style="text-align: center">Dish 1</h3>
+    <img style="margin-left:auto;margin-right:auto" src="../Images/vietnamese-pho.jpg" alt="burger" height="100px" width="150px">
+    <form method="POST" action="">
+            <div>
+                <input type="number" name="vietnamese-pho" class="vietnamese-pho" min="1" value="1">
+            </div>
+            <button style="display:inline-block" class="Button changeQuant">Change Quantity</button>
+        </form>
+    <button style="text-align:center" class="Button removeItem">Remove Item</button>
+</td>   
 
 */
