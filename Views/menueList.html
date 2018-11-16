@@ -147,12 +147,12 @@
      
 <!-- Template for Adding Items to Cart -->
 <script id="cartTemplate" type="text/x-handlebars-template">
-    <td> 
+    <td id="item"> 
         <h3 style="text-align: center">{{dishname}}</h3>
         <img style="margin-left:auto;margin-right:auto" src="{{dishimg}}" alt="{{dishname}}" height="100px" width="150px">
         <form>
-            <div>
-                <input type="number" name="partridge" id="partridge" min="1" value={{quantity}}>
+            <div id="quant">
+                <input type="number" name="{{dishname}}" id="partridge" min="1" value={{quantity}}>
             </div>
             <button style="display:inline-block" name="{{dishname}}" class="Button changeQuant" type="button">Change Quantity</button>
         </form>

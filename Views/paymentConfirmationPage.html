@@ -20,7 +20,7 @@
         </div>
     </div>
 
-<div align="center" style="background-color:white;color:black;font-family: Arial, Helvetica, sans-serif">
+<div id="review" align="center" style="background-color:white;color:black;font-family: Arial, Helvetica, sans-serif">
     <h1>Payment Confirmation Page</h1>
     <h2>Your Order has been Processed!</h2>
     <p>Here is a summary of your order</p>
@@ -34,6 +34,9 @@
         <p>Instructions</p>
         <p id="instruct">NA</p>
     </div>
+    <form action="../index.html">
+        <button class="Button" id="deleteCart"type="submit">Return to Home Page</button>
+    </form>
 
 </div>
 <script>
@@ -51,6 +54,27 @@
     if(validInstruc != null){
         $("#instruct").html(instruction[0].instra);
     }
+
+    /* Removes Selected Item and hides no items text(If Applicable) */
+    $("#review").on("click",'#deleteCart',function(){
+        var cartItem = JSON.parse(sessionStorage.getItem('cart'));
+        var legacyList = JSON.parse(sessionStorage.getItem('orders')) || [];  
+        var order = "";
+        //Looks for item in the storage and updates its quantity value
+        for(var i = 0; i < cartItem.length; i++){    
+            var quant = cartItem[i].quantity;
+            var dishName = cartItem[i].dishname;
+            
+           
+                order += dishName + ":" + quant + " ";
+            
+    
+        }
+        order += "#C120"
+        legacyList.push(order);
+        sessionStorage.removeItem('cart');
+        sessionStorage.setItem('orders',JSON.stringify(legacyList));
+    });
 
 </script>
 </body>

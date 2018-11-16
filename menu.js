@@ -97,15 +97,23 @@ $("#cartList").on("click",'.removeItem',function(){
 });
 
 /* Change quantity of item (Still in progress) */
-$("#confirmation").on("click",'.changeQuant',function(){
+$('#cart').on("click",".changeQuant",function(){
     // Retrieving Cart and current input value
     var cartItem = JSON.parse(sessionStorage.getItem('cart'));  
     var newQuant = $(this).siblings('div').children('input').val();
-    
+   // var dishName = $(this).attr("name");
+    //var quantName = "#quant" + dishName;
+    //var newQuant = $(quantName).children('input').val();
+   // console.log("dishname =" + dish);
+   // console.log("Current Quant "+newQuant);
+    //var currentItem = $('input[name="ramen"]').name;
+    //var currentItem = $('input[name="' + dish + '"]');
+   // console.log("currentItem =" + currentItem );
     //Looks for item in the storage and updates its quantity value
     for(var i = 0; i < cartItem.length; i++){
         if(cartItem[i].dishname == $(this).attr("name")){
             cartItem[i].quantity = newQuant;
+            console.log("hello");
             break;
         }
     }

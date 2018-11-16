@@ -5,3 +5,4 @@ function goToNewPage(){
   console.log(choice)
   window.open(choice)
 }
+
