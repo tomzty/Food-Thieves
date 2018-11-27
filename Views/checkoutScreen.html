@@ -42,36 +42,6 @@
                 <p style="text-align:center"><a href="restaurantList.html">Click here to return to Resturant page</a></p>
             </td>
         </tr>
-        
-        <!-- Testing with Bootstrap Designs
-        <tr>
-            
-            <td> 
-                <h2 style=text-align:center>Ramen (Using Bootstrap)</h2>
-                <div class="row">
-                        <div class="col-sm-3 col-md-2">
-                                <img src="../Images/ramen.jpg" alt="ramen" height="50px" width="100px">
-                        </div>
-                        
-                        <div class="col-sm-9 col-md-8">
-                            <h4>Price:</h4>
-                            <h4>Resturant:</h4>
-                            <h4>Ingredients:</h4>
-                        </div>
-                        
-                        <div class="col-sm-9 col-md-2" style="text-align:center">
-                            <form>
-                                <div>
-                                    <input type="number" name="partridge" id="partridge" min="1" value={{quantity}}>
-                                </div>
-                                <button style="display:inline-block" class="Button">Change Quantity</button>
-                            </form>
-                            <button style="margin-top:20px" name="ramen" class="Button removeItem">Remove Item</button>   
-                        </div>
-                </div>
-            </td>
-        </tr>
-        -->
     </table>
 </div>
 
@@ -84,7 +54,7 @@
         <input type="text" id="instructions" style="width:500px;height:100px" value="">
     </form>
     <form action="paymentConfirmationPage.html" id="confirm">
-        <button style="text-align:center;margin:0 auto;" id="conf" class="Button"> Confirm Purchase</button>
+        <button style="text-align:center;margin:0 auto;" id="conf" class="Button deleteCart"> Confirm Purchase</button>
     </form>
 </div>
 
@@ -102,7 +72,7 @@
             </div>
             <form style="float:right">
                 <div>
-                    <input type="number" name="partridge" id="partridge" min="1" value={{quantity}}>
+                    <input type="number" name="partridge" id="partridge" min="1" value="{{quantity}}">
                 </div>
                 <button style="display:inline-block" name="{{dishname}}" class="Button changeQuant">Change Quantity</button>
             </form>

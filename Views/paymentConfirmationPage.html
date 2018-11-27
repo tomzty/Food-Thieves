@@ -29,6 +29,11 @@
     </div>
 
     <p>Confirmation Number: C120</p>
+    
+    <div id="orders">
+
+
+    </div>
 
     <div>
         <p>Instructions</p>
@@ -41,41 +46,36 @@
 </div>
 <script>
 
-    var cartData = JSON.parse(sessionStorage.getItem('cart'));
+//Local Storage: Cart Data
+var orderData = JSON.parse(sessionStorage.getItem('orders'));
+
+var validOrder = JSON.parse(sessionStorage.getItem('orders'));
+
+
+// No Items Message + confirmation button   
+if(validOrder != null){
+    console.log("order data Length =" + orderData.length);
+    var latestOrder = orderData[orderData.length-1].prevOrder.split(',');
+    console.log("latestOrder length =" + latestOrder.length);
+    for(var i = 1; i <latestOrder.length; i++){
+        $("#orders").append("<p>"+latestOrder[i]+"</p>");
+        console.log("Latestorder =" + latestOrder[i]);
+    }
+    console.log(latestOrder);
+
+}
+else{
+   console.log("not working")
+}
+</script>
+
+<script>
     var instruction = JSON.parse(sessionStorage.getItem('instr'));
     var validInstruc = sessionStorage.getItem('instr');
-    //Prints out current cart list
-    for (var i = 0; i < cartData.length; i++){
-        var curData = cartData[i];
-        var Item = "<p>" + curData.dishname + " (Quantity: " + curData.quantity + ")</p>";
-        $("#order").append(Item);
-    }
     console.log(validInstruc);
     if(validInstruc != null){
         $("#instruct").html(instruction[0].instra);
     }
-
-    /* Removes Selected Item and hides no items text(If Applicable) */
-    $("#review").on("click",'#deleteCart',function(){
-        var cartItem = JSON.parse(sessionStorage.getItem('cart'));
-        var legacyList = JSON.parse(sessionStorage.getItem('orders')) || [];  
-        var order = "";
-        //Looks for item in the storage and updates its quantity value
-        for(var i = 0; i < cartItem.length; i++){    
-            var quant = cartItem[i].quantity;
-            var dishName = cartItem[i].dishname;
-            
-           
-                order += dishName + ":" + quant + " ";
-            
-    
-        }
-        order += "#C120"
-        legacyList.push(order);
-        sessionStorage.removeItem('cart');
-        sessionStorage.setItem('orders',JSON.stringify(legacyList));
-    });
-
 </script>
 </body>
 </html>

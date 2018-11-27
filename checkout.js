@@ -85,3 +85,26 @@ $("#confirm").on("click",'#conf',function(){
     sessionStorage.setItem('instr',JSON.stringify(instruc));
 
 });
+
+/* Removes Selected Item and hides no items text(If Applicable) */
+$("#itemPresent").on("click",'.deleteCart',function(){
+    var cartItem = JSON.parse(sessionStorage.getItem('cart'));
+    var legacyList = JSON.parse(sessionStorage.getItem('orders')) || [];  
+    var order = "#C120 ,";
+    var currentDate = new Date();
+    //Looks for item in the storage and updates its quantity value
+    for(var i = 0; i < cartItem.length; i++){    
+        var quant = cartItem[i].quantity;
+        var dishName = cartItem[i].dishname;
+        
+       
+            order += dishName + " Qty(" + quant + ") , ";
+        
+
+    }
+    order += " (" + currentDate +")";
+    prevOrder = {'prevOrder':order};
+    legacyList.push(prevOrder);
+    sessionStorage.removeItem('cart');
+    sessionStorage.setItem('orders',JSON.stringify(legacyList));
+});
