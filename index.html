@@ -28,7 +28,7 @@
         <div class="navBarItem-right user">
             
         </div>
-        <div class="navBarItem-right">
+        <div class="navBarItem-right" style="float:right;align-content: center;padding-right: 10px;padding-top: 15px">
             <a href="Views/checkoutScreen.html">Cart</a>
         </div>
     </div>
@@ -40,11 +40,10 @@
     <form name='dropdown' onsubmit='makePath(this);'>
        <!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
 
-       
        <select id = "dropDownId" style="width:50%;height: 40px" class="js-example-placeholder-single js-states form-control">
-            <option value = "Views/restaurantListUCSD.html">UCSD</option>
-            <option value = "Views/restaurantListUCI.html">UCI</option>
-            <option value = "Views/restaurantListUCSB.html">UCSB</option>
+            <option value = "Views/restaurantList.html" id="UCSD-choice">UCSD</option>
+            <option value = "Views/restaurantList.html" id="UCI-choice">UCI</option>
+            <option value = "Views/restaurantList.html" id="UCSB-choice">UCSB</option>
         </select>
         <input class="Button" type="submit" value="Submit">
     </form>
