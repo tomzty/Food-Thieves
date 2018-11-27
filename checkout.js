@@ -90,7 +90,7 @@ $("#confirm").on("click",'#conf',function(){
 $("#itemPresent").on("click",'.deleteCart',function(){
     var cartItem = JSON.parse(sessionStorage.getItem('cart'));
     var legacyList = JSON.parse(sessionStorage.getItem('orders')) || [];  
-    var order = "#C120 ,";
+    var order = "#C120, ";
     var currentDate = new Date();
     //Looks for item in the storage and updates its quantity value
     for(var i = 0; i < cartItem.length; i++){    
@@ -98,13 +98,16 @@ $("#itemPresent").on("click",'.deleteCart',function(){
         var dishName = cartItem[i].dishname;
         
        
-            order += dishName + " Qty(" + quant + ") , ";
+            order += dishName + "Qty(" + quant + "), ";
         
 
     }
-    order += " (" + currentDate +")";
+    order +=  " \n(" + currentDate +")";
     prevOrder = {'prevOrder':order};
     legacyList.push(prevOrder);
     sessionStorage.removeItem('cart');
     sessionStorage.setItem('orders',JSON.stringify(legacyList));
 });
+
+
+/*Resetting Cart*/
