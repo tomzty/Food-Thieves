@@ -17,6 +17,7 @@
     allowClear: true
 });
     </script>
+
 </head>
 
 <body>
@@ -25,8 +26,8 @@
         <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
             <a href="index.html" >WeOrder</a>
         </div>
-        <div class="navBarItem-right">
-            <a href="Views/profilePage.html">Profile</a>
+        <div class="navBarItem-right user">
+            
         </div>
         <div class="navBarItem-right">
             <a href="Views/checkoutScreen.html">Cart</a>
@@ -35,18 +36,36 @@
 
 <div class="masterView" style="align-content: center;margin-top: 15%">
     <h1>Search School</h1>
-    <form action="Views/restaurantList.html">
+    <form name='dropdown' onsubmit='makePath(this);'>
        <!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
 
        
-       <select style="width:50%;height: 40px" class="js-example-placeholder-single js-states form-control">
-            <option>UCSD</option>
-            <option>UCI</option>
-            <option>UCSB</option>
+       <select id = "dropDownId" style="width:50%;height: 40px" class="js-example-placeholder-single js-states form-control">
+            <option value = "Views/restaurantListUCSD.html">UCSD</option>
+            <option value = "Views/restaurantListUCI.html">UCI</option>
+            <option value = "Views/restaurantListUCSB.html">UCSB</option>
         </select>
-        <input class="Button"type="submit" value="Submit">
+        <input class="Button" type="submit" value="Submit">
     </form>
 </div>
+
+<script>
+    var user = sessionStorage.getItem('user');
+    console.log(" test: " + sessionStorage.getItem('user'));
+    // Replaces placeholder name
+    if(user != null){
+        $(".user").html('<a href="Views/profilePage.html">Profile</a>');
+        console.log("hi");
+    }
+    else{
+        $(".user").html('<a href="login.html">Log In</a>');
+    }
+
+    // Sends user to page based on option
+    var makePath = function(form) {
+        form.action = document.getElementById('dropDownId').value;
+    };
+</script>
 
 </body>
 </html>
