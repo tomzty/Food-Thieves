@@ -37,9 +37,10 @@ td {
     background-color:white
 }
 
-tr:nth-child(even) {
+/*tr:nth-child(even) {
     background-color: #8df7c5;
 }
+*/
 
 #NavBar{
     width:100%;

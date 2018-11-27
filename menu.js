@@ -86,7 +86,7 @@ $("#cartList").on("click",'.removeItem',function(){
     
     // Updating Storage
     sessionStorage.setItem('cart',JSON.stringify(cartItem));
-    $(this).parent('td').remove();
+    $(this).parent('td').parent('tr').remove();
 
     console.log("After: " + cartItem.length);
 

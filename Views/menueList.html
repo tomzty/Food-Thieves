@@ -18,6 +18,9 @@
             <a href="checkoutScreen.html">Cart</a>
         </div>
     </div>
+    <div style="text-align:left">
+       <p> <a href="restaurantList.html">Restaurant List </a> > <b>Menu List</b> > Checkout > Confirmation </p>
+    </div>
 
     <h1>Menu List</h1>
     <div class="tableViewContainer">
@@ -125,7 +128,7 @@
     <div>
             <h1 style="text-align: center">Items in Cart</h1>
 
-            <table id="cart" style="width:90%" align="center">
+            <table id="cart" style="width: 40%" align="center">
                 <tr id="noItems">
                     <td> 
                         <p style="text-align:center">No Items Currently in Cart.</p>
@@ -145,17 +148,21 @@
      
 <!-- Template for Adding Items to Cart -->
 <script id="cartTemplate" type="text/x-handlebars-template">
-    <td id="item"> 
-        <h3 style="text-align: center">{{dishname}}</h3>
-        <img style="margin-left:auto;margin-right:auto" src="{{dishimg}}" alt="{{dishname}}" height="100px" width="150px">
-        <form>
-            <div id="quant">
-                <input type="number" name="{{dishname}}" id="partridge" min="1" value={{quantity}}>
-            </div>
-            <button style="display:inline-block" name="{{dishname}}" class="Button changeQuant" type="button">Change Quantity</button>
-        </form>
-        <button style="text-align:center" name="{{dishname}}" class="Button removeItem">Remove Item</button>
-    </td>
+    <tr>
+        <td id="item" style="width:100%;padding:5px;"> 
+            <h3 style="text-align: center">{{dishname}}</h3>
+        </td>
+        <td style="padding:5px">
+            <form>
+                <div id="quant">
+                    <input type="number" name="{{dishname}}" id="partridge" min="1" value={{quantity}}>
+                </div>
+                <button style="display:inline-block" name="{{dishname}}" class="Button changeQuant" type="button">Change Quantity</button>
+            </form>
+            <br>
+            <button style="float:center;margin-left:20px" name="{{dishname}}" class="Button removeItem">Remove Item</button>
+        </td>
+    </tr>
 </script>
 
 
