@@ -1,5 +1,7 @@
 .masterView{
     align-content: center;
+    margin: 0 auto;
+   /* width:80% *//* value of your choice which suits your alignment */
 }
 form {
     text-align: center;
@@ -42,12 +44,27 @@ td {
 }
 */
 
-#NavBar{
-    width:100%;
-    height:70px;
-    background-color:#2699FB;
+nav{
     margin:0px;
-    color:white
+    padding-bottom:0px;
+}
+
+.navbar{
+    width:100%;
+    height:80px;
+    background-color:#FF5437;
+    padding:0px;
+    font-size: 29px;
+    color:white;
+    border: 0px;
+    margin-bottom:0px;
+}
+
+.navbar a{
+    color:white;
+    font-size:29px;
+    margin-top:10px;
+    font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
 }
 .navBarItem-right {
     text-align: right;
@@ -55,18 +72,25 @@ td {
     padding-right: 10px;
 }
 
+.jumbotron{
+    margin-top:0px;
+    margin:0px;
+    margin-bottom:0px;
+    background-size: cover;
+}
 
 
 .Button{
     width:60px;
     height:45px;
-    background-color:#2699FB;
+    font-size:1.3em;
+    background-color:#FF5437;
     border: none;
     color:white
 }
 
 body{
-    background-color:#F1F9FF;
+    background-color:#EEEEEE;
     margin:0
 }
 

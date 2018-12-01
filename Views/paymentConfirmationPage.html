@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>WeOrder</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+	<title>WeOrder</title>
 </head>
 
 <body style="margin:0px">
 
-    <div id="NavBar">
-        <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
-            <a href="../index.html" >WeOrder</a>
-        </div>
-        <div class="navBarItem-right">
-            <a href="checkoutScreen.html">Cart</a>
-        </div>
-    </div>
+	<nav class="navbar navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../index.html">WeOrder</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a id="recentOrders" href="#">Recent Orders</a></li>
+				<li><a href="checkoutScreen.html">Cart</a></li>
+			</ul>
+		</div>
+	</nav>
 
-<div id="review" align="center" style="background-color:white;color:black;font-family: Arial, Helvetica, sans-serif">
-    <h1>Payment Confirmation Page</h1>
-    <h2>Your Order has been Processed!</h2>
-    <p>Here is a summary of your order</p>
-    <div id="order">
-        
-    </div>
+	<div style="text-align:left;padding-left:20px; padding-top:20px">
+		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <a href="menueList.html" style="color:#FF9C5B">Menu List</a> > <a href="checkoutScreen.html" style="color:#FF9C5B"> Checkout</a> > <b style="color:#FF5437">Confirmation</b> </p>
+	</div>
 
-    <p>Confirmation Number: C120</p>
-    
-    <div id="orders">
+	<div id="review" align="center" style="background-color:white;color:black;font-family: Arial, Helvetica, sans-serif">
+		<h1>Payment Confirmation Page</h1>
+		<h2>Your Order has been Processed!</h2>
+		<p>Here is a summary of your order</p>
+		<div id="order">
 
+		</div>
 
-    </div>
+		<p>Confirmation Number: C120</p>
 
-    <div>
-        <p>Instructions</p>
-        <p id="instruct">NA</p>
-    </div>
-    <form action="../index.html">
-        <button class="Button" id="deleteCart"type="submit">Return to Home Page</button>
-    </form>
-
-</div>
-<script>
-
-//Local Storage: Cart Data
-var orderData = JSON.parse(sessionStorage.getItem('orders'));
-
-var validOrder = JSON.parse(sessionStorage.getItem('orders'));
+		<div id="orders">
 
 
-// No Items Message + confirmation button   
-if(validOrder != null){
-    console.log("order data Length =" + orderData.length);
-    var latestOrder = orderData[orderData.length-1].prevOrder.split(',');
-    console.log("latestOrder length =" + latestOrder.length);
-    for(var i = 1; i <latestOrder.length; i++){
-        $("#orders").append("<p>"+latestOrder[i]+"</p>");
-        console.log("Latestorder =" + latestOrder[i]);
-    }
-    console.log(latestOrder);
+		</div>
 
-}
-else{
-   console.log("not working")
-}
-</script>
+		<div>
+			<p>Instructions</p>
+			<p id="instruct">NA</p>
+		</div>
+		<form action="../index.html">
+			<button class="Button" id="deleteCart" type="submit">Return to Home Page</button>
+		</form>
 
-<script>
-    var instruction = JSON.parse(sessionStorage.getItem('instr'));
-    var validInstruc = sessionStorage.getItem('instr');
-    console.log(validInstruc);
-    if(validInstruc != null){
-        $("#instruct").html(instruction[0].instra);
-    }
-</script>
+	</div>
+	<script>
+		//Local Storage: Cart Data
+		var orderData = JSON.parse(sessionStorage.getItem('orders'));
+
+		var validOrder = JSON.parse(sessionStorage.getItem('orders'));
+
+
+		// No Items Message + confirmation button   
+		if (validOrder != null) {
+			console.log("order data Length =" + orderData.length);
+			var latestOrder = orderData[orderData.length - 1].prevOrder.split(',');
+			console.log("latestOrder length =" + latestOrder.length);
+			for (var i = 1; i < latestOrder.length; i++) {
+				$("#orders").append("<p>" + latestOrder[i] + "</p>");
+				console.log("Latestorder =" + latestOrder[i]);
+			}
+			console.log(latestOrder);
+
+		} else {
+			console.log("not working")
+		}
+
+	</script>
+
+	<script>
+		var instruction = JSON.parse(sessionStorage.getItem('instr'));
+		var validInstruc = sessionStorage.getItem('instr');
+		console.log(validInstruc);
+		if (validInstruc != null) {
+			$("#instruct").html(instruction[0].instra);
+		}
+
+	</script>
 </body>
+
 </html>

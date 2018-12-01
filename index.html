@@ -1,86 +1,181 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>WeOrder</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    <script>
-    $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-    });
-    
-    $(".js-example-placeholder-single").select2({
-    placeholder: "Select a state",
-    allowClear: true
-});
-    </script>
 
+<head>
+	<title>WeOrder</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+		$(document).ready(function() {
+			$('.js-example-basic-multiple').select2();
+		});
+
+		$(".js-example-placeholder-single").select2({
+			placeholder: "Select a state",
+			allowClear: true
+		});
+
+	</script>
 </head>
 
 <body>
+	<nav class="navbar navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">WeOrder</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a id="recentOrders" href="#">Recent Orders</a></li>
+				<li><a href="Views/checkoutScreen.html">Cart</a></li>
+			</ul>
+		</div>
+	</nav>
 
-    <div id="NavBar">
-        <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
-            <a href="index.html" >WeOrder</a>
-        </div>
-        <div class="navBarItem-right" style="float:right;align-content: center;padding-right: 10px;padding-top: 5px">
-            <a href="Views/checkoutScreen.html">Cart</a>
-        </div>
-        <div class="navBarItem-left" style="float:right;align-content: center;padding-right: 10px;padding-top: 5px">
-            <a id="recentOrders" href="#">Recent Orders</a>
-        </div>
-    </div>
+	<div class="jumbotron mb-0 " style="background-image:url(Images/landing.jpg);height:1000px;margin-top:0px">
+		<h1 style="color:white">Have Food Delivered to <br>Your School!</h1>
+		<div class="masterView container-fluid" style="width:75%;text-align:center;margin-top: 10%">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-md-offset-1 col-lg-offset-1">
+					<h3 style="color:white;float:left;">Search For Your School</h3>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-9 col-md-9 col-md-offset-1 col-lg-offset-1">
+					<form name='dropdown' onsubmit='makePath(this);'>
+						<select id="dropDownId" style="height: 40px;" class="js-example-placeholder-single js-states form-control">
+                        <option value = "Views/restaurantList.html" id="UCSD-choice">UCSD</option>
+                        <option value = "Views/restaurantList.html" id="UCI-choice">UCI</option>
+                        <option value = "Views/restaurantList.html" id="UCSB-choice">UCSB</option>
+                    </select>
+					</form>
+				</div>
+
+				<div class="col-lg-2 col-md-2">
+					<input id="search" style="float:left;width:80px" class="Button" type="submit" value="Search">
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="jumbotron container-fluid " style="padding-bottom:50px;padding-top:0px">
+		<div class="row">
+			<div class="col-md-12 col-lg-12">
+				<h1 style="padding-bottom:50px">Let's Get You Something To Eat!</h1>
+			</div>
+		</div>
+
+		<div class="row" style="padding-bottom:50px">
+			<div class="col-md-3 col-lg-3">
+				<h1><b>&lt;IMG&gt;</b></h1>
+			</div>
+
+			<div class="col-md-3 col-lg-3">
+				<h1><b>&lt;IMG&gt;</b></h1>
+			</div>
+
+			<div class="col-md-3 col-lg-3">
+				<h1><b>&lt;IMG&gt;</b></h1>
+			</div>
+
+			<div class="col-md-3 col-lg-3">
+				<h1><b>&lt;IMG&gt;</b></h1>
+			</div>
 
 
-<div class="masterView" style="align-content: center;margin-top: 15%">
-    <h1>Search School</h1>
-    <form name='dropdown' onsubmit='makePath(this);'>
-       <!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
+		</div>
 
-       <select id = "dropDownId" style="width:50%;height: 40px" class="js-example-placeholder-single js-states form-control">
-            <option value = "Views/restaurantList.html" id="UCSD-choice">UCSD</option>
-            <option value = "Views/restaurantList.html" id="UCI-choice">UCI</option>
-            <option value = "Views/restaurantList.html" id="UCSB-choice">UCSB</option>
-        </select>
-        <input class="Button" type="submit" value="Submit">
-    </form>
-</div>
+		<div class="row" style="text-align:center">
 
+			<div class="col-md-3 col-lg-3">
+				<h4>Choose Your School</h4>
+			</div>
 
- <!-- The Modal -->
- <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3 style="text-align: center">Past Orders</h3>
-        
-        <table id="confirmation" style="width:90%" align="center">
-            <tr id="noItems">
-                <td>
-                    <p style="text-align:center">No Past Orders</p>
-                </td>
-            </tr>
-        </table>
-    
-    </div>
-</div>
+			<div class="col-md-3 col-lg-3">
+				<h4>Choose a Restaurant <br>and Select Your Item(s)</h4>
+			</div>
 
-<!-- Template for Cart List-->
-<script id="confirmTemplate" type="text/x-handlebars-template">
-    <tr>
-        <td style="text-align:center"> 
-            <p>{{[prevOrder]}}</p>
-        </td>
-    </tr>
-</script>
+			<div class="col-md-3 col-lg-3">
+				<h4>Confirm Order and Wait for <br>Delivery</h4>
+			</div>
+
+			<div class="col-md-3 col-lg-3">
+				<h4>Enjoy</h4>
+			</div>
+
+		</div>
+
+	</div>
 
 
-<script src="handlebars-v4.0.12.js"></script>
-<script src="main.js"></script>
-<script>
-$("#confirmation").find("tr").last().css("color","red");
-</script>
+
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h3 style="text-align: center">Past Orders</h3>
+
+			<table id="confirmation" style="width:90%" align="center">
+				<tr id="noItems">
+					<td>
+						<p style="text-align:center">No Past Orders</p>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+	<!-- Template for Cart List-->
+	<script id="confirmTemplate" type="text/x-handlebars-template">
+		<tr>
+			<td style="text-align:center">
+				<p>{{[prevOrder]}}</p>
+			</td>
+		</tr>
+	</script>
+
+
+	<script src="handlebars-v4.0.12.js"></script>
+	<script src="main.js"></script>
+	<script>
+		$("#confirmation").find("tr").eq(1).css("color", "red");
+
+		$("#search").click(function() {
+
+			var school = JSON.parse(sessionStorage.getItem('school')) || [];
+
+			if (school === undefined || school.length == 0) {
+				var newSchool = {
+					'schoolName': $("#dropDownId option:selected").text()
+				};
+				school.push(newSchool);
+				sessionStorage.setItem('school', JSON.stringify(school));
+			} else {
+				sessionStorage.setItem('school', JSON.stringify({
+					'schoolName': $("#dropDownId option:selected").text()
+				}));
+			}
+			location.href = "Views/restaurantList.html";
+		});
+
+	</script>
 </body>
+
 </html>

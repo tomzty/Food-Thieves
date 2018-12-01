@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>WeOrder</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <script src="../Scripts/restaurantListSCRIPT.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>WeOrder</title>
+	<script src="../Scripts/restaurantListSCRIPT.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+
 </head>
 
 <body style="margin:0px">
-
+	<!--
     <div id="NavBar">
         <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
             <a href="../index.html" >WeOrder</a>
@@ -18,158 +28,174 @@
             <a href="checkoutScreen.html">Cart</a>
         </div>
     </div>
-    <div style="text-align:left">
-       <p> <a href="restaurantList.html">Restaurant List </a> > <b>Menu List</b> > Checkout > Confirmation </p>
-    </div>
+    -->
 
-    <h1>Menu List</h1>
-    <div class="tableViewContainer">
-        <table id="menu" style="width: 90%;" align="center">
-            <tr name="burger">
-                <td width="100px">
-                    <!--want to add js popup modal to show details of food 
-                        when user clicks on image-->    
-                        <img style="text-align:left"src="../Images/burger.jpg" alt="burger" height="100px" width="150px">
-                </td>
-                
-                <td style="text-align:center">
-                    
-                    <h3>Dish 1</h3>
-                    <h4>Description of Dish</h4>
-                
-                </td>
-            
-                <td width="75px">             
-                    <form>
-                            <div name="ok">
-                                <label for="name">Quantity</label>
-                                <input type="number" name="burger" min="0" value="1">
-                            </div>
-                            <button style="display:inline-block" name="burger" class="Button addItem">Add to Cart</button>
-                        </form>     
-                </td>
-                
-            </tr>
+	<nav class="navbar navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../index.html">WeOrder</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a id="recentOrders" href="#">Recent Orders</a></li>
+				<li><a href="checkoutScreen.html">Cart</a></li>
+			</ul>
+		</div>
+	</nav>
 
-            <tr>
-                    <td width="100px">
-                            <!--want to add js popup modal to show details of food 
-                                when user clicks on image-->    
-                                <img style="text-align:left"src="../Images/kbbq.jpg" alt="kbbq" height="100px" width="150px">
-                        </td>
-                        
-                        <td style="text-align:center">
-                            <h3>Dish 2</h3>
-                            <h4>Description of Dish</h4>
-                            <div class = "tooltip"> Alert! 
-                                <span class="tooltiptext"> Possible Peanut Allergy </span>
-                            </div>
-                        </td>
-                    
-                        <td width="75px">        
-                                <form>
-                                        <div>
-                                            <label for="name">Quantity</label>
-                                            <input type="number" name="kbbq" min="0" value="1">
-                                        </div>
-                                            <button style="display:inline-block" name="kbbq" class="Button addItem">Add to Cart</button>
-                                    </form>
-                        </td>
-            </tr>
+	<div style="text-align:left;padding-left:20px; padding-top:20px">
+		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <b style="color:#FF5437">Menu List</b> > Checkout > Confirmation </p>
+	</div>
 
-            <tr>
-                    <td width="100px">
-                            <!--want to add js popup modal to show details of food 
-                                when user clicks on image-->    
-                                <img style="text-align:left"src="../Images/ramen.jpg" alt="ramen" height="100px" width="150px">
-                        </td>
-                        
-                        <td style="text-align:center">
-                            <h3>Dish 3</h3>
-                            <h4>Description of Dish</h4>
-                        </td>
-                    
-                        <td width="75px">        
-                                <form>
-                                        <div>
-                                            <label for="name">Quantity</label>
-                                            <input type="number" name="ramen" min="0" value="1">
-                                        </div>
-                                            <button style="display:inline-block" name="ramen" class="Button addItem">Add to Cart</button>
-                                    </form>
-                        </td>
-            </tr>
+	<h1>Menu List</h1>
+	<div class="tableViewContainer">
+		<table id="menu" style="width: 90%;" align="center">
+			<tr name="burger">
+				<td width="100px">
+					<!--want to add js popup modal to show details of food 
+                        when user clicks on image-->
+					<img style="text-align:left" src="../Images/burger.jpg" alt="burger" height="100px" width="150px">
+				</td>
 
-            <tr>
-                    <td width="100px">
-                            <!--want to add js popup modal to show details of food 
-                                when user clicks on image-->    
-                                <img style="text-align:left"src="../Images/vietnamese-pho.jpg" alt="vietnamese-pho" height="100px" width="150px">
-                        </td>
-                        
-                        <td style="text-align:center">
-                            <h3>Dish 4</h3>
-                            <h4>Description of Dish</h4>
-                        </td>
-                    
-                        <td width="75px">        
-                                <form>
-                                        <div>
-                                            <label for="name">Quantity</label>
-                                            <input type="number" name="vietnamese-pho" min="0" value="1">
-                                        </div>
-                                            <button style="display:inline-block" name="vietnamese-pho" class="Button addItem">Add to Cart</button>
-                                    </form>
-                        </td>
-            </tr>
-        </table>
-    </div>
+				<td style="text-align:center">
 
-    <div>
-            <h1 style="text-align: center">Items in Cart</h1>
+					<h3>Dish 1</h3>
+					<h4>Description of Dish</h4>
 
-            <table id="cart" style="width: 40%" align="center">
-                <tr id="noItems">
-                    <td> 
-                        <p style="text-align:center">No Items Currently in Cart.</p>
-                    </td>
-                </tr>
-                <tr id="cartList">
-                    
-                </tr>
-            </table>
-    </div>
+				</td>
 
-    <form style="margin-top:10px" action="checkoutScreen.html">
-        <!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
-         <button class="Button" type="submit"> Proceed to Checkout </button>
-     </form>
+				<td width="75px">
+					<form>
+						<div name="ok">
+							<label for="name">Quantity</label>
+							<input type="number" name="burger" min="0" value="1">
+						</div>
+						<button style="display:inline-block" name="burger" class="Button addItem">Add to Cart</button>
+					</form>
+				</td>
 
-     
-<!-- Template for Adding Items to Cart -->
-<script id="cartTemplate" type="text/x-handlebars-template">
-    <tr>
-        <td id="item" style="width:100%;padding:5px;"> 
-            <h3 style="text-align: center">{{dishname}}</h3>
-        </td>
-        <td style="padding:5px">
-            <form>
-                <div id="quant">
-                    <input type="number" name="{{dishname}}" id="partridge" min="1" value={{quantity}}>
-                </div>
-                <button style="display:inline-block" name="{{dishname}}" class="Button changeQuant" type="button">Change Quantity</button>
-            </form>
-            <br>
-            <button style="float:center;margin-left:20px" name="{{dishname}}" class="Button removeItem">Remove Item</button>
-        </td>
-    </tr>
-</script>
+			</tr>
+
+			<tr>
+				<td width="100px">
+					<!--want to add js popup modal to show details of food 
+                                when user clicks on image-->
+					<img style="text-align:left" src="../Images/kbbq.jpg" alt="kbbq" height="100px" width="150px">
+				</td>
+
+				<td style="text-align:center">
+					<h3>Dish 2</h3>
+					<h4>Description of Dish</h4>
+					<div class="tooltip"> Alert!
+						<span class="tooltiptext"> Possible Peanut Allergy </span>
+					</div>
+				</td>
+
+				<td width="75px">
+					<form>
+						<div>
+							<label for="name">Quantity</label>
+							<input type="number" name="kbbq" min="0" value="1">
+						</div>
+						<button style="display:inline-block" name="kbbq" class="Button addItem">Add to Cart</button>
+					</form>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="100px">
+					<!--want to add js popup modal to show details of food 
+                                when user clicks on image-->
+					<img style="text-align:left" src="../Images/ramen.jpg" alt="ramen" height="100px" width="150px">
+				</td>
+
+				<td style="text-align:center">
+					<h3>Dish 3</h3>
+					<h4>Description of Dish</h4>
+				</td>
+
+				<td width="75px">
+					<form>
+						<div>
+							<label for="name">Quantity</label>
+							<input type="number" name="ramen" min="0" value="1">
+						</div>
+						<button style="display:inline-block" name="ramen" class="Button addItem">Add to Cart</button>
+					</form>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="100px">
+					<!--want to add js popup modal to show details of food 
+                                when user clicks on image-->
+					<img style="text-align:left" src="../Images/vietnamese-pho.jpg" alt="vietnamese-pho" height="100px" width="150px">
+				</td>
+
+				<td style="text-align:center">
+					<h3>Dish 4</h3>
+					<h4>Description of Dish</h4>
+				</td>
+
+				<td width="75px">
+					<form>
+						<div>
+							<label for="name">Quantity</label>
+							<input type="number" name="vietnamese-pho" min="0" value="1">
+						</div>
+						<button style="display:inline-block" name="vietnamese-pho" class="Button addItem">Add to Cart</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div>
+		<h1 style="text-align: center">Items in Cart</h1>
+
+		<table id="cart" style="width: 40%" align="center">
+			<tr id="noItems">
+				<td>
+					<p style="text-align:center">No Items Currently in Cart.</p>
+				</td>
+			</tr>
+			<tr id="cartList">
+
+			</tr>
+		</table>
+	</div>
+
+	<form style="margin-top:10px" action="checkoutScreen.html">
+		<!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
+		<button class="Button" type="submit"> Proceed to Checkout </button>
+	</form>
 
 
-<script src="../handlebars-v4.0.12.js"></script>
-<script>
+	<!-- Template for Adding Items to Cart -->
+	<script id="cartTemplate" type="text/x-handlebars-template">
+		<tr>
+			<td id="item" style="width:100%;padding:5px;">
+				<h3 style="text-align: center">{{dishname}}</h3>
+			</td>
+			<td style="padding:5px">
+				<form>
+					<div id="quant">
+						<input type="number" name="{{dishname}}" id="partridge" min="1" value={{quantity}}>
+					</div>
+					<button style="display:inline-block" name="{{dishname}}" class="Button changeQuant" type="button">Change Quantity</button>
+				</form>
+				<br>
+				<button style="float:center;margin-left:20px" name="{{dishname}}" class="Button removeItem">Remove Item</button>
+			</td>
+		</tr>
+	</script>
 
-</script>
-<script src="../menu.js"></script>
+
+	<script src="../handlebars-v4.0.12.js"></script>
+	<script>
+
+
+	</script>
+	<script src="../menu.js"></script>
 </body>
+
 </html>
