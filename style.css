@@ -79,7 +79,7 @@ nav{
     background-size: cover;
 }
 
-
+/* Global setting for all ui buttons in project */
 .Button{
     width:60px;
     height:45px;
