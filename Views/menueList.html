@@ -42,17 +42,195 @@
 		</div>
 	</nav>
 
-	<div style="text-align:left;padding-left:20px; padding-top:20px">
-		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <b style="color:#FF5437">Menu List</b> > Checkout > Confirmation </p>
+	
+	<div class="container-fluid" style="padding-top:0px" >
+		<div class="row">
+			<div class="col-md-8 col-lg-8" style="padding-left:20px">
+				<div style="text-align:left; padding-top:20px">
+					<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <b style="color:#FF5437">Menu List</b> > Checkout > Confirmation </p>
+				</div>
+				<h2 style="padding-bottom:20px"> <span id="restaurant">Restaurant</span> Menu</h2>
+
+				<div id="menu" class="container-fluid">
+					<div class="row" style="padding-top:30px;padding-bottom:30px">
+						<div class="col-md-6 col-lg-6"> 
+							<div class="container-fluid" style="background-color:white;width:100%;height:150px;">
+								<div class="row">
+									<div class="col-md-6 col-lg-6">
+										<h3><b>Burger</b></h3>
+										<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+										<h5><b>Price</b>: $15</h5>
+									</div>
+									
+									<div class="col-md-6 col-lg-6" style="padding-top:35px">
+											<form>
+													<div name="ok">
+														<label for="name">Quantity</label>
+														<input type="number" name="burger" min="0" value="1">
+													</div>
+													<button style="display:inline-block;width:100px" name="burger" class="Button addItem">Add to Cart</button>
+											</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-6">
+							<div class="container-fluid" style="background-color:white;width:100%;height:150px;">
+									<div class="row">
+											<div class="col-md-6 col-lg-6">
+												<h3><b>Korean BBQ</b></h3>
+												<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+												<h5><b>Price</b>: $15</h5>
+											</div>
+											
+											<div class="col-md-6 col-lg-6" style="padding-top:35px">
+													<form>
+															<div>
+																<label for="name">Quantity</label>
+																<input type="number" name="kbbq" min="0" value="1">
+															</div>
+															<button style="display:inline-block;width:100px" name="kbbq" class="Button addItem">Add to Cart</button>
+														</form>
+		
+											</div>
+										</div>
+							</div>
+						</div>
+					</div>
+				<!---->
+				<div class="row" style="padding-top:30px;padding-bottom:30px">
+						<div class="col-md-6 col-lg-6"> 
+							<div class="container-fluid" style="background-color:white;width:100%;height:150px;">
+								<div class="row">
+									<div class="col-md-6 col-lg-6">
+										<h3><b>Ramen</b></h3>
+										<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+										<h5><b>Price</b>: $15</h5>
+									</div>
+									
+									<div class="col-md-6 col-lg-6" style="padding-top:35px">
+											<form>
+													<div>
+														<label for="name">Quantity</label>
+														<input type="number" name="ramen" min="0" value="1">
+													</div>
+													<button style="display:inline-block;width:100px" name="ramen" class="Button addItem">Add to Cart</button>
+											</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-lg-6">
+							<div class="container-fluid" style="background-color:white;width:100%;height:150px;">
+									<div class="row">
+											<div class="col-md-6 col-lg-6">
+												<h3><b>Pho</b></h3>
+												<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+												<h5><b>Price</b>: $15</h5>
+											</div>
+											
+											<div class="col-md-6 col-lg-6" style="padding-top:35px">
+													<form>
+															<div>
+																<label for="name">Quantity</label>
+																<input type="number" name="vietnamese-pho" min="0" value="1">
+															</div>
+															<button style="display:inline-block;width:100px" name="vietnamese-pho" class="Button addItem">Add to Cart</button>
+													</form>
+		
+											</div>
+										</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="padding-top:30px;padding-bottom:30px">
+							<div class="col-md-6 col-lg-6"> 
+								<div class="container-fluid" style="background-color:white;width:100%;height:150px;">
+									<div class="row">
+										<div class="col-md-6 col-lg-6">
+											<h3><b>Ramen</b></h3>
+											<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+											<h5><b>Price</b>: $15</h5>
+										</div>
+										
+										<div class="col-md-6 col-lg-6 container-fluid" style="padding-top:35px">
+											<form class="container-fluid">
+												<div>
+													<label for="name">Quantity</label>
+													<input type="number" name="ramen" min="0" value="1">
+												</div>
+													<button style="display:inline-block;width:100px" name="ramen" class="Button addItem">Add to Cart</button>
+											</form>
+	
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="col-md-6 col-lg-6">
+								<div class="container-fluid" style="background-color:white;width:100%;height:150px;">
+										<div class="row">
+												<div class="col-md-6 col-lg-6">
+													<h3><b>Ramen</b></h3>
+													<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+													<h5><b>Price</b>: $15</h5>
+												</div>
+												
+												<div class="col-md-6 col-lg-6" style="padding-top:35px">
+													<form>
+														<div>
+															<label for="name">Quantity</label>
+															<input type="number" name="ramen" min="0" value="1">
+														</div>
+															<button style="display:inline-block;width:100px" name="ramen" class="Button addItem">Add to Cart</button>
+													</form>
+			
+												</div>
+											</div>
+								</div>
+							</div>
+						</div>
+						<!---->
+				</div>
+
+			</div>
+			
+			<div class="col-md-4 col-lg-4" style="float:right;padding-right:0px">
+				<div style="background-color:white;height:90vh;padding-bottom:50px">
+					<h2 style="text-align:center;margin-top:0px;padding-top:20px">Cart</h2>
+					<h4 id="noItems" style="color:gray;text-align:center;padding-top:50px">No Items Currently In Cart</h4>
+					
+					<table id="cart" style="width: 65%" align="center">
+							<tr id="noItems">
+							</tr>
+							<tr id="cartList">
+				
+							</tr>
+					</table>
+
+					<form style="margin-top:10px" action="checkoutScreen.html">
+						<!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
+						<button class="Button" type="submit"> Proceed to Checkout </button>
+					</form>
+				</div>
+			</div>
+		</div> 
+
+
+
 	</div>
 
+	<!--
 	<h1>Menu List</h1>
 	<div class="tableViewContainer">
 		<table id="menu" style="width: 90%;" align="center">
 			<tr name="burger">
 				<td width="100px">
-					<!--want to add js popup modal to show details of food 
-                        when user clicks on image-->
+					
 					<img style="text-align:left" src="../Images/burger.jpg" alt="burger" height="100px" width="150px">
 				</td>
 
@@ -77,8 +255,7 @@
 
 			<tr>
 				<td width="100px">
-					<!--want to add js popup modal to show details of food 
-                                when user clicks on image-->
+				
 					<img style="text-align:left" src="../Images/kbbq.jpg" alt="kbbq" height="100px" width="150px">
 				</td>
 
@@ -103,8 +280,7 @@
 
 			<tr>
 				<td width="100px">
-					<!--want to add js popup modal to show details of food 
-                                when user clicks on image-->
+					
 					<img style="text-align:left" src="../Images/ramen.jpg" alt="ramen" height="100px" width="150px">
 				</td>
 
@@ -126,8 +302,7 @@
 
 			<tr>
 				<td width="100px">
-					<!--want to add js popup modal to show details of food 
-                                when user clicks on image-->
+					
 					<img style="text-align:left" src="../Images/vietnamese-pho.jpg" alt="vietnamese-pho" height="100px" width="150px">
 				</td>
 
@@ -163,11 +338,7 @@
 			</tr>
 		</table>
 	</div>
-
-	<form style="margin-top:10px" action="checkoutScreen.html">
-		<!-- <input style="width:50%;height: 40px"  type="text" placeholder="Search For Your School" id="schoolSelection"> -->
-		<button class="Button" type="submit"> Proceed to Checkout </button>
-	</form>
+-->
 
 
 	<!-- Template for Adding Items to Cart -->
