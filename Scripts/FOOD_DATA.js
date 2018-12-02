@@ -3,7 +3,7 @@
 // Quick side note: if the hasAllergens value is set to TRUE
 // then the ui will indicate a tiny image marker for the user to see
 
-var restaurantData = [
+var restaurantData = { restaurants: [ 
     {
         'restaurant': 'Rakki Rakki',
         'dishes': [ 
@@ -49,4 +49,4 @@ var restaurantData = [
         ],
         'hasAllergens': false  
     }
-]
+] }

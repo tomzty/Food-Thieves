@@ -5,16 +5,16 @@
 	<title>WeOrder</title>
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<!-- Note that FOOD_DATA is needed to pull the fake data -->
-	<script src="../Scripts/restaurantListSCRIPT.js"></script>
-	<script src="../Scripts/FOOD_DATA.js"></script>
+	<script src="../handlebars-v4.0.12.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../Scripts/FOOD_DATA.js"></script>
+	<script src="../Scripts/restaurantListSCRIPT.js"></script>
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	<script src="../handlebars-v4.0.12.js"></script>
 	<style>
 		/* The Modal (background) */
 		
@@ -95,18 +95,18 @@
 		<table style="width: 90%;" align="center">
 			<tr>
 				<td style="width:200px">
-					<p>Img of Restaurant 1</p>
+					<figure style="display:inline-block;margin-left: 45px">
+						<img class="dish" src="../Images/restaurantPics/innout.jpg" height="85px" width="100px">
+					</figure>
 				</td>
 				<td style="text-align:center">
 					<!--want to add js popup modal to show details of food
                         when user clicks on image-->
 					<div style="display:block;text-align: center" class="template-holder">
-						<a href="menueList.html">
-                            <script id="address-template" type="text/x-handlebars-template"">
-                                {{ restaurantData[0].restaurant }}
-                            </script>
-                        </a>
-						<h4>Menu Preview</h4>
+						<a href="menueList.html"> <span style="font-size: 40px">In n Out</span></a>
+						<h4>American Food</h4>
+						<h5>in-n-out.com</h5>
+						<h5>(800) 786 - 1000</h5>
 						<div style="margin-top:10px">
 							<figure style="display:inline-block;margin-right: 75px">
 								<img class="dish" src="../Images/burger.jpg" alt="burger" height="85px" width="100px">
@@ -128,21 +128,25 @@
 					</div>
 
 				</td>
-				<td style="width:80px;background-color:#7FC4FD;color:white">
-					<a href="menueList.html">View Menu</a>
+				<td style="width:80px;background-color:#003049;color:white">
+					<a style="text-decoration: none; color: white;" href="menueList.html">View Menu</a>
 				</td>
 			</tr>
 
 			<tr>
-				<td style="width:75px">
-					<p>Img of Restaurant 2</p>
+				<td style="width:75px"> 
+					<figure style="display:inline-block;margin-left: 45px">
+						<img class="dish" src="../Images/restaurantPics/nishiki.jpg" height="85px" width="100px">
+					</figure>
 				</td>
 				<td style="text-align:center;">
 					<!--want to add js popup modal to show details of food
                                  when user clicks on image-->
 					<div style="display:block;text-align: center">
-						<a href="menueList.html"><span style="font-size: 40px">Restaurant 2</span></a>
-						<h4>Menu Preview</h4>
+						<a href="menueList.html"><span style="font-size: 40px">Nishiki</span></a>
+						<h4>Japaneese Food</h4>
+						<h5>nishikiramen.com</h5>
+						<h5>(800) 786 - 1000</h5>
 						<div style="margin-top:10px">
 							<figure style="display:inline-block;margin-right: 75px">
 								<img class="dish" src="../Images/vietnamese-pho.jpg" alt="burger" height="85px" width="100px">
@@ -166,21 +170,25 @@
 	</div>
 
 	</td>
-	<td style="width:80px;background-color:#7FC4FD;color:white">
-		<a href="menueList.html">View Menu</a>
+	<td style="width:80px;background-color:#003049;color:white">
+		<a style="text-decoration: none; color: white;" href="menueList.html">View Menu</a>
 	</td>
 	</tr>
 
 	<tr>
 		<td style="width:75px">
-			<p>Img of Restaurant 3</p>
+			<figure style="display:inline-block;margin-left: 45px">
+				<img class="dish" src="../Images/restaurantPics/rakkirakki.jpg" height="85px" width="100px">
+			</figure>
 		</td>
 		<td style="text-align:center">
 			<!--want to add js popup modal to show details of food
                                  when user clicks on image-->
 			<div style="display:block;text-align: center">
-				<a href="menueList.html"><span style="font-size: 40px">Restaurant 3</span></a>
-				<h4>Menu Preview</h4>
+				<a href="menueList.html"><span style="font-size: 40px">Rakki Rakki</span></a>
+				<h4>Japaneese Food</h4>
+				<h5>rakkirakki.com</h5>
+				<h5>(800) 786 - 1000</h5>
 				<div style="margin-top:10px">
 					<figure style="display:inline-block;margin-right: 75px">
 						<img src="../Images/kbbq.jpg" alt="burger" height="85px" width="100px">
@@ -204,21 +212,25 @@
 			</div>
 
 		</td>
-		<td style="width:80px;background-color:#7FC4FD;color:white">
-			<a href="menueList.html">View Menu</a>
+		<td style="width:80px;background-color:#003049;color:white">
+			<a style="text-decoration: none; color: white;" href="menueList.html">View Menu</a>
 		</td>
 	</tr>
 
 	<tr>
 		<td style="width:75px">
-			<p>Img of Restaurant 4</p>
+			<figure style="display:inline-block;margin-left: 45px">
+				<img style="" class="dish" src="../Images/restaurantPics/manna.jpeg" height="85px" width="100px">
+			</figure>
 		</td>
 		<td style="text-align:center">
 			<!--want to add js popup modal to show details of food
                                  when user clicks on image-->
 			<div style="display:block;text-align: center">
-				<a href="menueList.html"><span style="font-size: 40px">Restaurant 4</span></a>
-				<h4>Menu Preview</h4>
+				<a href="menueList.html"><span style="font-size: 40px">Mana KBBQ</span></a>
+				<h4>Korean BBQ</h4>
+				<h5>mannabbq.com</h5>
+				<h5>(800) 786 - 1000</h5>
 				<div style="margin-top:10px">
 					<figure style="display:inline-block;margin-right: 75px">
 						<img style="float:left " src="../Images/ramen.jpg" alt="burger" height="85px" width="100px">
@@ -242,8 +254,8 @@
 			</div>
 
 		</td>
-		<td style="width:80px;background-color:#7FC4FD;color:white">
-			<a href="menueList.html">View Menu</a>
+		<td style="width:80px;background-color:#003049;color:white">
+			<a style="text-decoration: none; color: white;" href="menueList.html">View Menu</a>
 		</td>
 	</tr>
 	</table>
