@@ -52,8 +52,7 @@
 		</table>
 	</div>
 
-
-	<div id="itemPresent" style="width:50%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:visible">
+	<div id="itemPresent" style="width:90%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:visible; border: 1px solid #dddddd; padding: 5px; margin-top: 25px;margin-bottom: 25px">
 		<h3>Pick up Time</h3>
 		<p>11/22/18 at 12:00pm</p>
 		<h3>Delivery Instructions</h3>
@@ -65,24 +64,49 @@
 		</form>
 	</div>
 
+	<!--
+	<div id="itemPresent" style="width:90%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:visible">
+		<h3>Pick up Time</h3>
+		<p>11/22/18 at 12:00pm</p>
+		<h3>Delivery Instructions</h3>
+		<form>
+			<input type="text" id="instructions" style="width:500px;height:100px" value="">
+		</form>
+		<form action="paymentConfirmationPage.html" id="confirm">
+			<button style="text-align:center;margin:0 auto;" id="conf" class="Button deleteCart"> Confirm Purchase</button>
+		</form>
+	</div>
+	-->
+	<div>
+	</div>
+
 	<!-- Template for Cart List-->
 	<script id="confirmTemplate" type="text/x-handlebars-template">
 		<tr>
 			<td>
-				<h3 style="text-align: center">{{dishname}} (Using Vanilla CSS)</h3>
-				<img style="float:left" src="{{dishimg}}" alt="{{dishname}}" height="100px" width="150px">
-				<div style="margin-left:18%">
-					<h4>Price:</h4>
-					<h4>Resturant:</h4>
-					<h4>Ingredients:</h4>
-					<button style="text-align:center;display:block" name="{{dishname}}" class="Button removeItem">Remove Item</button>
+				<h3 style="text-align: center">{{dishname}} </h3>
+				<div style=" width:80%; float:left">
+				<img style="float:left ;padding-left:10px" src="{{dishimg}}" alt="{{dishname}}" height="150px" width="180px">
+					<div style = "padding-left:200px">
+						<h4>Price:</h4>
+						<h4>Resturant:</h4>
+						<h4>Ingredients:</h4>
+						<h4>Quantity: {{quantity}}</h4>
+						<div style="display: block">
+						</div>
+					</div>
 				</div>
+				<div style = "width:20%; float:right">
+					<button style="text-align:center;display:block; width:150px;height:100px; font-size:1em" name="{{dishname}}" class="Button removeItem">Remove Item</button>
+				</div>
+				<!--
 				<form style="float:right">
 					<div>
 						<input type="number" name="partridge" id="partridge" min="1" value="{{quantity}}">
 					</div>
 					<button style="display:inline-block" name="{{dishname}}" class="Button changeQuant">Change Quantity</button>
 				</form>
+			    -->
 			</td>
 		</tr>
 	</script>
