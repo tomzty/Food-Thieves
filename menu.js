@@ -9,11 +9,15 @@ var source = $("#cartTemplate").html();
 var template = Handlebars.compile(source);
 var parentDiv = $("#cartList");
 
-// No Items Message
-if (cartData.length == 0) {
-	$("#noItems").css('visibility', 'visible');
-} else {
-	$("#noItems").css('visibility', 'hidden');
+if(cartData == null | cartData.length == 0){
+	$("#checkout").css("visibility", "hidden");
+	$("#noItems").css("visibility", "visible");
+	console.log("ok1")
+}
+else{
+	console.log("ok2")
+	$("#checkout").css("visibility", "visible");
+	$("#noItems").css("visibility", "hidden");
 }
 
 //Prints out current cart list
@@ -67,6 +71,7 @@ $("#menu").on("click", '.addItem', function () {
 
 	if (cart.length > 0) {
 		$("#noItems").css('visibility', 'hidden');
+		$("#checkout").css("visibility", "visible");
 	}
 	console.log("cart Length = " + cart.length);
 	console.log("cartData Length = " + cartData.length);
@@ -95,6 +100,7 @@ $("#cartList").on("click", '.removeItem', function () {
 	// No Items are in the cart Message
 	if (cartItem.length == 0) {
 		$("#noItems").css('visibility', 'visible');
+		$("#checkout").css("visibility", "hidden");
 	}
 });
 
@@ -123,6 +129,57 @@ $('#cart').on("click", ".changeQuant", function () {
 	//Updating Storage
 	sessionStorage.setItem('cart', JSON.stringify(cartItem));
 });
+
+/* @@@@@ Modal Window @@@@@ */
+$("#recentOrders").on("click", function () {
+	$(".modal").css('display', 'block');
+});
+
+$(".close").on("click", function () {
+	$(".modal").css('display', 'none')
+});
+
+// When the user clicks anywhere outside of the modal, close it
+$(window).click(function (event) {
+	if (event.target == $(".modal")) {
+		$(".modal").css("display", "none");
+	}
+});
+
+
+/* @@@@@ Modal Content @@@@@ */
+//Local Storage: Cart Data
+var cartData = JSON.parse(sessionStorage.getItem('orders'));
+
+var validCart = JSON.parse(sessionStorage.getItem('orders'));
+
+//Handlebars Variables
+var sourceRecentOrder = $("#recentOrderTemplate").html();
+var templateRecentOrder = Handlebars.compile(sourceRecentOrder);
+var parentCartDiv = $("#recentOrderItems");
+
+
+// No Items Message + confirmation button   
+if (validCart != null) {
+	$("#noRecentOrder").css('visibility', 'hidden');
+
+	//Prints out current cart list
+	for (var i = cartData.length - 1; i >= 0; i--) {
+		var curOrder = cartData[i].prevOrder.split("");
+
+		var curData = cartData[i];
+		var curHtml = templateRecentOrder(curData);
+		parentCartDiv.append(curHtml);
+	}
+
+} else {
+	$("#noRecentOrder").css('visibility', 'visible');
+	$("#itemPresent").css('visibility', 'hidden');
+}
+
+$("#recentOrderItems").find("tr").eq(1).css("color", "red");
+
+
 
 
 

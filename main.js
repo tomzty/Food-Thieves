@@ -8,7 +8,7 @@ function goToNewPage() {
 	window.open(choice)
 }
 
-/* @@@@@ Modal @@@@@ */
+/* @@@@@ Modal Window @@@@@ */
 $("#recentOrders").on("click", function () {
 	$(".modal").css('display', 'block');
 });
@@ -26,47 +26,33 @@ $(window).click(function (event) {
 
 
 /* @@@@@ Modal Content @@@@@ */
-var user = sessionStorage.getItem('user');
-console.log(" test: " + sessionStorage.getItem('user'));
-// Replaces placeholder name
-if (user != null) {
-	$(".user").html('<a href="Views/profilePage.html">Profile</a>');
-	console.log("hi");
-} else {
-	$(".user").html('<a href="login.html">Log In</a>');
-}
-
-// Sends user to page based on option
-var makePath = function (form) {
-	form.action = document.getElementById('dropDownId').value;
-};
-
-
 //Local Storage: Cart Data
 var cartData = JSON.parse(sessionStorage.getItem('orders'));
 
 var validCart = JSON.parse(sessionStorage.getItem('orders'));
 
 //Handlebars Variables
-var source = $("#confirmTemplate").html();
-var template = Handlebars.compile(source);
-var parentDiv = $("#confirmation");
+var sourceRecentOrder = $("#recentOrderTemplate").html();
+var templateRecentOrder = Handlebars.compile(sourceRecentOrder);
+var parentCartDiv = $("#recentOrderItems");
 
 
 // No Items Message + confirmation button   
 if (validCart != null) {
-	$("#noItems").css('visibility', 'hidden');
+	$("#noRecentOrder").css('visibility', 'hidden');
 
 	//Prints out current cart list
 	for (var i = cartData.length - 1; i >= 0; i--) {
 		var curOrder = cartData[i].prevOrder.split("");
 
 		var curData = cartData[i];
-		var curHtml = template(curData);
-		parentDiv.append(curHtml);
+		var curHtml = templateRecentOrder(curData);
+		parentCartDiv.append(curHtml);
 	}
 
 } else {
-	$("#noItems").css('visibility', 'visible');
+	$("#noRecentOrder").css('visibility', 'visible');
 	$("#itemPresent").css('visibility', 'hidden');
 }
+
+$("#recentOrderItems").find("tr").eq(1).css("color", "red");

@@ -37,12 +37,12 @@
 
 
 	<div style="text-align:left;padding-left:20px; padding-top:20px">
-		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <a href="menueList.html" style="color:#FF9C5B">Menu List</a> > <b style="color:#FF5437"> Checkout</b> > Confirmation </p>
+		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <a href="menueList.html" style="color:#FF9C5B">Menu List</a> > <b style="color:#ed303c"> Checkout</b> > Confirmation </p>
 	</div>
 
 	<h1>Review Page</h1>
 	<div>
-		<table id="confirmation" style="width:90%" align="center">
+		<table id="confirmationList" style="width:90%" align="center">
 			<tr id="noItems">
 				<td>
 					<p style="text-align:center">No Items in cart</p>
@@ -52,7 +52,7 @@
 		</table>
 	</div>
 
-	<div id="itemPresent" style="width:90%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:visible; border: 1px solid #dddddd; padding: 5px; margin-top: 25px;margin-bottom: 25px">
+	<div id="itemPresent" style="width:90%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:hidden; border: 1px solid #dddddd; padding: 5px; margin-top: 25px;margin-bottom: 25px">
 		<h3>Pick up Time</h3>
 		<p>11/22/18 at 12:00pm</p>
 		<h3>Delivery Instructions</h3>
@@ -64,21 +64,32 @@
 		</form>
 	</div>
 
-	<!--
-	<div id="itemPresent" style="width:90%;background-color:white;text-align:center;padding:15px;margin:0 auto;visibility:visible">
-		<h3>Pick up Time</h3>
-		<p>11/22/18 at 12:00pm</p>
-		<h3>Delivery Instructions</h3>
-		<form>
-			<input type="text" id="instructions" style="width:500px;height:100px" value="">
-		</form>
-		<form action="paymentConfirmationPage.html" id="confirm">
-			<button style="text-align:center;margin:0 auto;" id="conf" class="Button deleteCart"> Confirm Purchase</button>
-		</form>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h3 style="text-align: center">Past Orders</h3>
+
+			<table id="recentOrderItems" style="width:90%" align="center">
+				<tr id="noRecentOrder">
+					<td>
+						<p style="text-align:center">No Past Orders</p>
+					</td>
+				</tr>
+			</table>
+
+		</div>
 	</div>
-	-->
-	<div>
-	</div>
+
+	<!-- Template for Cart List-->
+	<script id="recentOrderTemplate" type="text/x-handlebars-template">
+		<tr>
+			<td style="text-align:center">
+				<p>{{[prevOrder]}}</p>
+			</td>
+		</tr>
+	</script>
 
 	<!-- Template for Cart List-->
 	<script id="confirmTemplate" type="text/x-handlebars-template">
@@ -86,8 +97,8 @@
 			<td>
 				<h3 style="text-align: center">{{dishname}} </h3>
 				<div style=" width:80%; float:left">
-				<img style="float:left ;padding-left:10px" src="{{dishimg}}" alt="{{dishname}}" height="150px" width="180px">
-					<div style = "padding-left:200px">
+					<img style="float:left ;padding-left:10px" src="{{dishimg}}" alt="{{dishname}}" height="150px" width="180px">
+					<div style="padding-left:200px">
 						<h4>Price:</h4>
 						<h4>Resturant:</h4>
 						<h4>Ingredients:</h4>
@@ -96,21 +107,16 @@
 						</div>
 					</div>
 				</div>
-				<div style = "width:20%; float:right">
+				<div style="width:20%; float:right">
 					<button style="text-align:center;display:block; width:150px;height:100px; font-size:1em" name="{{dishname}}" class="Button removeItem">Remove Item</button>
 				</div>
-				<!--
-				<form style="float:right">
-					<div>
-						<input type="number" name="partridge" id="partridge" min="1" value="{{quantity}}">
-					</div>
-					<button style="display:inline-block" name="{{dishname}}" class="Button changeQuant">Change Quantity</button>
-				</form>
-			    -->
 			</td>
 		</tr>
 	</script>
+	<script>
+		$("#confirmation").find("tr").eq(1).css("color", "red");
 
+	</script>
 	<script src="../handlebars-v4.0.12.js"></script>
 	<script src="../checkout.js"></script>
 </body>

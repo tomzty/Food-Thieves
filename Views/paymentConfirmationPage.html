@@ -31,7 +31,7 @@
 	</nav>
 
 	<div style="text-align:left;padding-left:20px; padding-top:20px">
-		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <a href="menueList.html" style="color:#FF9C5B">Menu List</a> > <a href="checkoutScreen.html" style="color:#FF9C5B"> Checkout</a> > <b style="color:#FF5437">Confirmation</b> </p>
+		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <a href="menueList.html" style="color:#FF9C5B">Menu List</a> > <a href="checkoutScreen.html" style="color:#FF9C5B"> Checkout</a> > <b style="color:#ed303c">Confirmation</b> </p>
 	</div>
 
 	<div id="review" align="center" style="background-color:white;color:black;font-family: Arial, Helvetica, sans-serif">
@@ -58,6 +58,39 @@
 		</form>
 
 	</div>
+
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h3 style="text-align: center">Past Orders</h3>
+
+			<table id="recentOrderItems" style="width:90%" align="center">
+				<tr id="noRecentOrder">
+					<td>
+						<p style="text-align:center">No Past Orders</p>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+	<script src="../handlebars-v4.0.12.js"></script>
+
+	<!-- Template for Cart List-->
+	<script id="recentOrderTemplate" type="text/x-handlebars-template">
+		<tr>
+			<td style="text-align:center">
+				<p>{{[prevOrder]}}</p>
+			</td>
+		</tr>
+	</script>
+
+
+
 	<script>
 		//Local Storage: Cart Data
 		var orderData = JSON.parse(sessionStorage.getItem('orders'));
@@ -89,6 +122,57 @@
 		if (validInstruc != null) {
 			$("#instruct").html(instruction[0].instra);
 		}
+
+	</script>
+
+	<script>
+		/* @@@@@ Modal Window @@@@@ */
+		$("#recentOrders").on("click", function() {
+			$(".modal").css('display', 'block');
+		});
+
+		$(".close").on("click", function() {
+			$(".modal").css('display', 'none')
+		});
+
+		// When the user clicks anywhere outside of the modal, close it
+		$(window).click(function(event) {
+			if (event.target == $(".modal")) {
+				$(".modal").css("display", "none");
+			}
+		});
+
+
+		/* @@@@@ Modal Content @@@@@ */
+		//Local Storage: Cart Data
+		var cartData = JSON.parse(sessionStorage.getItem('orders'));
+
+		var validCart = JSON.parse(sessionStorage.getItem('orders'));
+
+		//Handlebars Variables
+		var sourceRecentOrder = $("#recentOrderTemplate").html();
+		var templateRecentOrder = Handlebars.compile(sourceRecentOrder);
+		var parentCartDiv = $("#recentOrderItems");
+
+
+		// No Items Message + confirmation button   
+		if (validCart != null) {
+			$("#noRecentOrder").css('visibility', 'hidden');
+
+			//Prints out current cart list
+			for (var i = cartData.length - 1; i >= 0; i--) {
+				var curOrder = cartData[i].prevOrder.split("");
+
+				var curData = cartData[i];
+				var curHtml = templateRecentOrder(curData);
+				parentCartDiv.append(curHtml);
+			}
+
+		} else {
+			$("#noRecentOrder").css('visibility', 'visible');
+		}
+
+		$("#recentOrderItems").find("tr").eq(1).css("color", "red");
 
 	</script>
 </body>

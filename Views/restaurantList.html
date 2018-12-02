@@ -86,7 +86,7 @@
 
 	<!--BreadCrumbs-->
 	<div style="text-align:left;padding-left:20px">
-		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <b style="color:#FF5437">Restaurant List</b> > Menu List > Checkout > Confirmation </p>
+		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <b style="color:#ed303c">Restaurant List</b> > Menu List > Checkout > Confirmation </p>
 	</div>
 
 	<h1>Restaurants near <span id="school">UCSD</span></h1>
@@ -96,7 +96,7 @@
 			<tr>
 				<td style="width:200px">
 					<figure style="display:inline-block;margin-left: 45px">
-						<img class="dish" src="../Images/restaurantPics/innout.jpg" height="85px" width="100px">
+						<img class="dish" src="../Images/restaurantPics/innout.jpg" height="500px" width="500px">
 					</figure>
 				</td>
 				<td style="text-align:center">
@@ -134,7 +134,7 @@
 			</tr>
 
 			<tr>
-				<td style="width:75px"> 
+				<td style="width:75px">
 					<figure style="display:inline-block;margin-left: 45px">
 						<img class="dish" src="../Images/restaurantPics/nishiki.jpg" height="85px" width="100px">
 					</figure>
@@ -261,30 +261,34 @@
 	</table>
 	</div>
 
+
+
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 		<!-- Modal content -->
 		<div class="modal-content">
 			<span class="close">&times;</span>
+			<h3 style="text-align: center">Past Orders</h3>
 
-			<img style="float:left" src="../Images/burger.jpg" alt="burger" height="200px" width="200px">
-			<div style="float:right">
-				<h3>Price</h3>
-				<p>$5.00</p>
-				<h3>Dish</h3>
-				<p>This dish is pretty good</p>
-				<h3>Ingredients</h3>
-				<p>Eggs, Wheat, Beef.</p>
-				<form method="POST" action="">
-					<div>
-						<label for="name">Quantity</label>
-						<input type="number" name="partridge" id="partridge" min="0" value="1">
-					</div>
-					<button style="display:inline-block" class="Button">Add to Cart</button>
-				</form>
-			</div>
+			<table id="recentOrderItems" style="width:90%" align="center">
+				<tr id="noRecentOrder">
+					<td>
+						<p style="text-align:center">No Past Orders</p>
+					</td>
+				</tr>
+			</table>
+
 		</div>
 	</div>
+
+	<!-- Template for Cart List-->
+	<script id="recentOrderTemplate" type="text/x-handlebars-template">
+		<tr>
+			<td style="text-align:center">
+				<p>{{[prevOrder]}}</p>
+			</td>
+		</tr>
+	</script>
 
 	<script>
 		/* Changes School Text */
@@ -307,6 +311,55 @@
 				modal.style.display = "none";
 			}
 		}
+
+		/* @@@@@ Modal Window @@@@@ */
+		$("#recentOrders").on("click", function() {
+			$(".modal").css('display', 'block');
+		});
+
+		$(".close").on("click", function() {
+			$(".modal").css('display', 'none')
+		});
+
+		// When the user clicks anywhere outside of the modal, close it
+		$(window).click(function(event) {
+			if (event.target == $(".modal")) {
+				$(".modal").css("display", "none");
+			}
+		});
+
+
+		/* @@@@@ Modal Content @@@@@ */
+		//Local Storage: Cart Data
+		var cartData = JSON.parse(sessionStorage.getItem('orders'));
+
+		var validCart = JSON.parse(sessionStorage.getItem('orders'));
+
+		//Handlebars Variables
+		var sourceRecentOrder = $("#recentOrderTemplate").html();
+		var templateRecentOrder = Handlebars.compile(sourceRecentOrder);
+		var parentCartDiv = $("#recentOrderItems");
+
+
+		// No Items Message + confirmation button   
+		if (validCart != null) {
+			$("#noRecentOrder").css('visibility', 'hidden');
+
+			//Prints out current cart list
+			for (var i = cartData.length - 1; i >= 0; i--) {
+				var curOrder = cartData[i].prevOrder.split("");
+
+				var curData = cartData[i];
+				var curHtml = templateRecentOrder(curData);
+				parentCartDiv.append(curHtml);
+			}
+
+		} else {
+			$("#noRecentOrder").css('visibility', 'visible');
+			$("#itemPresent").css('visibility', 'hidden');
+		}
+
+		$("#recentOrderItems").find("tr").eq(1).css("color", "red");
 
 	</script>
 
