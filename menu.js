@@ -249,25 +249,25 @@ $('.modalAlert').on("click", ".addTag", function () {
 		else{
 			var alertTag={"aTag":newTag} 	
 			tagData.push(alertTag);
+
+			sessionStorage.setItem('alertTags',JSON.stringify(tagData));
+
+			//Adding Item to current cart list
+			var sourceTagAlert = $("#alertTagTemplate").html();
+			var templateTagAlert = Handlebars.compile(sourceTagAlert);
+			var parentDiv = $("#curTags");
+
+			var html = templateTagAlert(tagData[tagData.length-1]);
+			parentDiv.append(html);
+			tagChecker();
 		}
-		sessionStorage.setItem('alertTags',JSON.stringify(tagData));
-
-		//Adding Item to current cart list
-		var sourceTagAlert = $("#alertTagTemplate").html();
-		var templateTagAlert = Handlebars.compile(sourceTagAlert);
-		var parentDiv = $("#curTags");
-
-		var html = templateTagAlert(tagData[tagData.length-1]);
-		parentDiv.append(html);
-		tagChecker();
-
 	}
 });
 
 //Remove Tag
 $('.modalAlert').on("click", ".removeTag", function () {
 	var tagData = JSON.parse(sessionStorage.getItem('alertTags'));
- 
+	
    //Looks for item in the storage removes it
    for(var i = 0; i < tagData.length; i++){
 	   if(tagData[i].aTag == $(this).attr("name")){
@@ -275,11 +275,11 @@ $('.modalAlert').on("click", ".removeTag", function () {
 		   break;
 	   }
    }
-   
+   tagChecker();
    // Updating Storage
    sessionStorage.setItem('alertTags',JSON.stringify(tagData));
    $(this).parent('div').remove();
-   tagChecker();
+  
 });
 
 // Prints out current List
