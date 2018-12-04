@@ -24,6 +24,7 @@
 				<a class="navbar-brand" href="../index.html">WeOrder</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a id ="restrictions" href="#">Alert Tags</a></li>
 				<li><a id="recentOrders" href="#">Recent Orders</a></li>
 				<li><a href="checkoutScreen.html">Cart</a></li>
 			</ul>
@@ -89,92 +90,39 @@
 		</tr>
 	</script>
 
-
-
-	<script>
-		//Local Storage: Cart Data
-		var orderData = JSON.parse(sessionStorage.getItem('orders'));
-
-		var validOrder = JSON.parse(sessionStorage.getItem('orders'));
-
-
-		// No Items Message + confirmation button   
-		if (validOrder != null) {
-			console.log("order data Length =" + orderData.length);
-			var latestOrder = orderData[orderData.length - 1].prevOrder.split(',');
-			console.log("latestOrder length =" + latestOrder.length);
-			for (var i = 1; i < latestOrder.length; i++) {
-				$("#orders").append("<p>" + latestOrder[i] + "</p>");
-				console.log("Latestorder =" + latestOrder[i]);
-			}
-			console.log(latestOrder);
-
-		} else {
-			console.log("not working")
-		}
-
+	<!-- Template for Adding Alert Tags -->
+	<script id="alertTagTemplate" type="text/x-handlebars-template">
+		<div style="background-color:#ed303c;width:50%;margin-top:5px;padding:1.5px;text-align:center">
+				<button class="removeTag" name="{{aTag}}" style="background-color:transparent;color:white;float:left;border:none">&#10006;</button>
+				<h4 style="display:inline;color:white">{{aTag}}</h4>
+		</div>
 	</script>
 
-	<script>
-		var instruction = JSON.parse(sessionStorage.getItem('instr'));
-		var validInstruc = sessionStorage.getItem('instr');
-		console.log(validInstruc);
-		if (validInstruc != null) {
-			$("#instruct").html(instruction[0].instra);
-		}
+	<!-- The Modal -->
+	<div class="modalAlert">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2 style="text-align: center"><b>Alert Tags</b></h2>
+			<h6 style="text-align:center">Adding Tags will highlight specific ingredients in red.</h6>
+			
+			<div style="text-align:center">
+				<input type="text" id="instructions" style="width:120px;height:35px;margin-bottom:20px" value="">
+				<button class="Button addTag" style="display:inline;">Add</button>
+			</div>
+			
+			<div id="alertTags" style="background-color:whitesmoke;text-align:center;margin:auto;padding:30px;padding-top:5px;width:75%">
+				<h3 style="margin-top:0px">Current Tags</h3>
+				<div id="curTags" class="container-fluid" align="center">
+				
+				</div>
 
-	</script>
+			</div>
+		</div>
+	</div>
 
-	<script>
-		/* @@@@@ Modal Window @@@@@ */
-		$("#recentOrders").on("click", function() {
-			$(".modal").css('display', 'block');
-		});
+<script src="../payConfirmationPage.js"></script>
 
-		$(".close").on("click", function() {
-			$(".modal").css('display', 'none')
-		});
-
-		// When the user clicks anywhere outside of the modal, close it
-		$(window).click(function(event) {
-			if (event.target == $(".modal")) {
-				$(".modal").css("display", "none");
-			}
-		});
-
-
-		/* @@@@@ Modal Content @@@@@ */
-		//Local Storage: Cart Data
-		var cartData = JSON.parse(sessionStorage.getItem('orders'));
-
-		var validCart = JSON.parse(sessionStorage.getItem('orders'));
-
-		//Handlebars Variables
-		var sourceRecentOrder = $("#recentOrderTemplate").html();
-		var templateRecentOrder = Handlebars.compile(sourceRecentOrder);
-		var parentCartDiv = $("#recentOrderItems");
-
-
-		// No Items Message + confirmation button   
-		if (validCart != null) {
-			$("#noRecentOrder").css('visibility', 'hidden');
-
-			//Prints out current cart list
-			for (var i = cartData.length - 1; i >= 0; i--) {
-				var curOrder = cartData[i].prevOrder.split("");
-
-				var curData = cartData[i];
-				var curHtml = templateRecentOrder(curData);
-				parentCartDiv.append(curHtml);
-			}
-
-		} else {
-			$("#noRecentOrder").css('visibility', 'visible');
-		}
-
-		$("#recentOrderItems").find("tr").eq(1).css("color", "red");
-
-	</script>
 </body>
 
 </html>

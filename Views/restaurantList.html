@@ -9,64 +9,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="../Scripts/FOOD_DATA.js"></script>
 	<script src="../Scripts/restaurantListSCRIPT.js"></script>
+	
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-	<style>
-		/* The Modal (background) */
-		
-		.modal {
-			display: none;
-			/* Hidden by default */
-			position: fixed;
-			/* Stay in place */
-			z-index: 1;
-			/* Sit on top */
-			padding-top: 100px;
-			/* Location of the box */
-			left: 0;
-			top: 0;
-			width: 100%;
-			/* Full width */
-			height: 100%;
-			/* Full height */
-			overflow: auto;
-			/* Enable scroll if needed */
-			background-color: rgb(0, 0, 0);
-			/* Fallback color */
-			background-color: rgba(0, 0, 0, 0.4);
-			/* Black w/ opacity */
-		}
-		/* Modal Content */
-		
-		.modal-content {
-			background-color: #fefefe;
-			margin: auto;
-			padding: 20px;
-			border: 1px solid #888;
-			width: 45%;
-			height: 45%
-		}
-		/* The Close Button */
-		
-		.close {
-			color: #aaaaaa;
-			float: right;
-			font-size: 28px;
-			font-weight: bold;
-		}
-		
-		.close:hover,
-		.close:focus {
-			color: #000;
-			text-decoration: none;
-			cursor: pointer;
-		}
-
-	</style>
 
 </head>
 
@@ -78,6 +26,7 @@
 				<a class="navbar-brand" href="../index.html">WeOrder</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a id ="restrictions" href="#">Alert Tags</a></li>
 				<li><a id="recentOrders" href="#">Recent Orders</a></li>
 				<li><a href="checkoutScreen.html">Cart</a></li>
 			</ul>
@@ -198,84 +147,39 @@
 		</tr>
 	</script>
 
-	<script>
-		/*Go to Menu*/
-		$(".viewMenu").click(function() {			
-			location.href = "menueList.html";
-		});
 
-		/* Changes School Text */
-		var uni = JSON.parse(sessionStorage.getItem('school'))
-		if (uni != null) {
-			$("#school").html(uni.schoolName);
-		}
-
-		$(".dish").on("click", function() {
-			$(".modal").css('display', 'block');
-		});
-
-		$(".close").on("click", function() {
-			$(".modal").css('display', 'none')
-		});
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-
-		/* @@@@@ Modal Window @@@@@ */
-		$("#recentOrders").on("click", function() {
-			$(".modal").css('display', 'block');
-		});
-
-		$(".close").on("click", function() {
-			$(".modal").css('display', 'none')
-		});
-
-		// When the user clicks anywhere outside of the modal, close it
-		$(window).click(function(event) {
-			if (event.target == $(".modal")) {
-				$(".modal").css("display", "none");
-			}
-		});
-
-
-		/* @@@@@ Modal Content @@@@@ */
-		//Local Storage: Cart Data
-		var cartData = JSON.parse(sessionStorage.getItem('orders'));
-
-		var validCart = JSON.parse(sessionStorage.getItem('orders'));
-
-		//Handlebars Variables
-		var sourceRecentOrder = $("#recentOrderTemplate").html();
-		var templateRecentOrder = Handlebars.compile(sourceRecentOrder);
-		var parentCartDiv = $("#recentOrderItems");
-
-
-		// No Items Message + confirmation button   
-		if (validCart != null) {
-			$("#noRecentOrder").css('visibility', 'hidden');
-
-			//Prints out current cart list
-			for (var i = cartData.length - 1; i >= 0; i--) {
-				var curOrder = cartData[i].prevOrder.split("");
-
-				var curData = cartData[i];
-				var curHtml = templateRecentOrder(curData);
-				parentCartDiv.append(curHtml);
-			}
-
-		} else {
-			$("#noRecentOrder").css('visibility', 'visible');
-			$("#itemPresent").css('visibility', 'hidden');
-		}
-
-		$("#recentOrderItems").find("tr").eq(1).css("color", "red");
-
+	<!-- Template for Adding Alert Tags -->
+	<script id="alertTagTemplate" type="text/x-handlebars-template">
+		<div style="background-color:#ed303c;width:50%;margin-top:5px;padding:1.5px;text-align:center">
+				<button class="removeTag" name="{{aTag}}" style="background-color:transparent;color:white;float:left;border:none">&#10006;</button>
+				<h4 style="display:inline;color:white">{{aTag}}</h4>
+		</div>
 	</script>
 
+	<!-- The Modal -->
+	<div class="modalAlert">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2 style="text-align: center"><b>Alert Tags</b></h2>
+			<h6 style="text-align:center">Adding Tags will highlight specific ingredients in red.</h6>
+			
+			<div style="text-align:center">
+				<input type="text" id="instructions" style="width:120px;height:35px;margin-bottom:20px" value="">
+				<button class="Button addTag" style="display:inline;">Add</button>
+			</div>
+			
+			<div id="alertTags" style="background-color:whitesmoke;text-align:center;margin:auto;padding:30px;padding-top:5px;width:75%">
+				<h3 style="margin-top:0px">Current Tags</h3>
+				<div id="curTags" class="container-fluid" align="center">
+				
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="../restaurantList.js"></script>
 </body>
 
 </html>

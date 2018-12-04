@@ -109,15 +109,7 @@ $('#cart').on("click", ".changeQuant", function () {
 	// Retrieving Cart and current input value
 	var cartItem = JSON.parse(sessionStorage.getItem('cart'));
 	var newQuant = $(this).siblings('div').children('input').val();
-	// var dishName = $(this).attr("name");
-	//var quantName = "#quant" + dishName;
-	//var newQuant = $(quantName).children('input').val();
-	// console.log("dishname =" + dish);
-	// console.log("Current Quant "+newQuant);
-	//var currentItem = $('input[name="ramen"]').name;
-	//var currentItem = $('input[name="' + dish + '"]');
-	// console.log("currentItem =" + currentItem );
-	//Looks for item in the storage and updates its quantity value
+
 	for (var i = 0; i < cartItem.length; i++) {
 		if (cartItem[i].dishname == $(this).attr("name")) {
 			cartItem[i].quantity = newQuant;
@@ -180,21 +172,131 @@ if (validCart != null) {
 $("#recentOrderItems").find("tr").eq(1).css("color", "red");
 
 
+/* @@@@@ ModalAlert Window @@@@@ */
+$("#restrictions").on("click", function () {
+	$(".modalAlert").css('display', 'block');
+});
+
+$(".close").on("click", function () {
+	$(".modalAlert").css('display', 'none')
+});
+
+// When the user clicks anywhere outside of the modal, close it
+$(window).click(function (event) {
+	if (event.target == $(".modalAlert")) {
+		$(".modalAlert").css("display", "none");
+	}
+});
 
 
+/* Highlights ingredients in red */
+function tagChecker(){
+	var tagData = JSON.parse(sessionStorage.getItem('alertTags')) || [];
 
+	if(tagData == null || tagData.length == 0 ){
+		console.log("No Tags Available");
+	}
+	else{
+		$(".tagCheck").each(function(menu){
+			var menuL =  "#menu" + (menu+1); 
+			var ingredients = $(menuL).text().split(",");
+	
+			//console.log("trimming: " + $.trim(ingredients) );
+			
+			
+			for(var i =0; i<ingredients.length;i++){
+				var currIngre = $.trim(ingredients[i]);
+				
+				//console.log("Ingrediant:" + ingredients[i]);
 
-/* Original Cart Template
-<td> 
-    <h3 style="text-align: center">Dish 1</h3>
-    <img style="margin-left:auto;margin-right:auto" src="../Images/vietnamese-pho.jpg" alt="burger" height="100px" width="150px">
-    <form method="POST" action="">
-            <div>
-                <input type="number" name="vietnamese-pho" class="vietnamese-pho" min="1" value="1">
-            </div>
-            <button style="display:inline-block" class="Button changeQuant">Change Quantity</button>
-        </form>
-    <button style="text-align:center" class="Button removeItem">Remove Item</button>
-</td>   
+				for(var j = 0; j<tagData.length; j++){
+					var tagsChecked ='';
+					var currTag = tagData[j].aTag;
+					if( currIngre.toLowerCase() == currTag.toLowerCase() ){
+						ingredients[i]= " <mark style='background-color:#ff5959'>"+ currIngre + "</mark>";	
+					}
+				}
+			}
+			
+			$(menuL).html(ingredients.join(","));
+			
+		});
+		
+	}
+}
+tagChecker();
 
-*/
+//Add Tag
+$('.modalAlert').on("click", ".addTag", function () {
+	var tagData = JSON.parse(sessionStorage.getItem('alertTags')) || [];
+	var newTag = $(this).siblings('input').val();
+	var tagExist = false;
+
+	//Checks to see if there is an existing tag
+	for(var i = 0; i< tagData.length; i++){
+		if(newTag.toLowerCase() == tagData[i].aTag.toLowerCase() ){
+			tagExist = true;
+			console.log("tag Exists already")
+		}
+	}
+	
+	//Adds new Tag to list
+	if(tagExist == false){
+		//Check for empty values and spaces
+		if( newTag === null || newTag.match(/^ *$/) !== null){
+			console.log("Value is empty")		
+		}
+		else{
+			var alertTag={"aTag":newTag} 	
+			tagData.push(alertTag);
+		}
+		sessionStorage.setItem('alertTags',JSON.stringify(tagData));
+
+		//Adding Item to current cart list
+		var sourceTagAlert = $("#alertTagTemplate").html();
+		var templateTagAlert = Handlebars.compile(sourceTagAlert);
+		var parentDiv = $("#curTags");
+
+		var html = templateTagAlert(tagData[tagData.length-1]);
+		parentDiv.append(html);
+		tagChecker();
+
+	}
+});
+
+//Remove Tag
+$('.modalAlert').on("click", ".removeTag", function () {
+	var tagData = JSON.parse(sessionStorage.getItem('alertTags'));
+ 
+   //Looks for item in the storage removes it
+   for(var i = 0; i < tagData.length; i++){
+	   if(tagData[i].aTag == $(this).attr("name")){
+		   tagData.splice(i,1);
+		   break;
+	   }
+   }
+   
+   // Updating Storage
+   sessionStorage.setItem('alertTags',JSON.stringify(tagData));
+   $(this).parent('div').remove();
+   tagChecker();
+});
+
+// Prints out current List
+var tagData = JSON.parse(sessionStorage.getItem('alertTags'));
+if(tagData == null || tagData.length == 0 ){
+	console.log("Invalid Cart");
+}
+else{
+	//Adding previous TagList
+	var sourceTagAlert = $("#alertTagTemplate").html();
+	var templateTagAlert = Handlebars.compile(sourceTagAlert);
+	var parentDiv = $("#curTags");
+
+	for(var i =0; i<tagData.length;i++){
+		var currentTag = tagData[i]
+		var html = templateTagAlert(currentTag);
+		parentDiv.append(html)
+	}
+}
+

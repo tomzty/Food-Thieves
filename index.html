@@ -66,9 +66,13 @@
 				<div class="col-lg-2 col-md-2">
 					<input id="search" style="float:left;width:80px" class="Button" type="submit" value="Search">
 				</div>
-
 			</div>
 
+			<div class="row">
+				<div class="col-lg-12 col-md-12" style="margin-top:50px">
+					<button id="restrictions" style="float:center;width:130px;font-size:.85em;text-align:center" class="Button">Have Dietary <br>Restrictions?</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -122,7 +126,6 @@
 	</div>
 
 
-
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 		<!-- Modal content -->
@@ -150,6 +153,36 @@
 		</tr>
 	</script>
 
+	<!-- Template for Adding Alert Tags -->
+	<script id="alertTagTemplate" type="text/x-handlebars-template">
+		<div style="background-color:#ed303c;width:50%;margin-top:5px;padding:1.5px;text-align:center">
+				<button class="removeTag" name="{{aTag}}" style="background-color:transparent;color:white;float:left;border:none">&#10006;</button>
+				<h4 style="display:inline;color:white">{{aTag}}</h4>
+		</div>
+	</script>
+
+	<!-- The Modal -->
+	<div class="modalAlert">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2 style="text-align: center"><b>Alert Tags</b></h2>
+			<h6 style="text-align:center">Adding Tags will highlight specific ingredients in red.<br> You can access this window on other pages by clicking "Alert Tags" on the navbar   </h6>
+			
+			<div style="text-align:center">
+				<input type="text" id="instructions" style="width:120px;height:35px;margin-bottom:20px" value="">
+				<button class="Button addTag" style="display:inline;">Add</button>
+			</div>
+			
+			<div id="alertTags" style="background-color:whitesmoke;text-align:center;margin:auto;padding:30px;padding-top:5px;width:75%">
+				<h3 style="margin-top:0px">Current Tags</h3>
+				<div id="curTags" class="container-fluid" align="center">
+				
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 	<script src="handlebars-v4.0.12.js"></script>
 	<script src="main.js"></script>

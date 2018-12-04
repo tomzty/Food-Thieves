@@ -25,6 +25,7 @@
 				<a class="navbar-brand" href="../index.html">WeOrder</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a id ="restrictions" href="#">Alert Tags</a></li>
 				<li><a id="recentOrders" href="#">Recent Orders</a></li>
 				<li><a href="checkoutScreen.html">Cart</a></li>
 			</ul>
@@ -47,7 +48,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-6">
 										<h3><b>Burger</b></h3>
-										<h5><b>Ingredients</b>: Beef, Wheat, Cheese, Lettuce, Tomato, Secret Sauce</h5>
+										<h5 ><b>Ingredients</b>:<span id="menu1" class="tagCheck">Beef, Wheat, Cheese, Lettuce, Tomato, Secret Sauce</span></h5>
 										<h5><b>Price</b>: $5</h5>
 									</div>
 
@@ -70,7 +71,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-6">
 										<h3><b>Korean BBQ</b></h3>
-										<h5><b>Ingredients</b>: Beef, Pork</h5>
+										<h5><b>Ingredients</b>:<span id="menu2" class="tagCheck">Beef, Pork</span></h5>
 										<h5><b>Price</b>: $20</h5>
 									</div>
 
@@ -95,7 +96,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-6">
 										<h3><b>Ramen</b></h3>
-										<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+										<h5><b>Ingredients</b>: <span id="menu3" class="tagCheck">Beef, Noodles, Chicken Broth</span></h5>
 										<h5><b>Price</b>: $15</h5>
 									</div>
 
@@ -118,7 +119,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-6">
 										<h3><b>Pho</b></h3>
-										<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth</h5>
+										<h5><b>Ingredients</b>: <span id="menu4" class="tagCheck">Beef, Noodles, Chicken Broth</span></h5>
 										<h5><b>Price</b>: $8</h5>
 									</div>
 
@@ -142,7 +143,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-6">
 										<h3><b>Ramen</b></h3>
-										<h5><b>Ingredients</b>: Pork, Noodles, Chicken Broth</h5>
+										<h5><b>Ingredients</b>: <span id="menu5" class="tagCheck">Pork, Noodles, Chicken Broth</span></h5>
 										<h5><b>Price</b>: $15</h5>
 									</div>
 
@@ -165,7 +166,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-6">
 										<h3><b>Ramen</b></h3>
-										<h5><b>Ingredients</b>: Beef, Noodles, Chicken Broth, Peanuts</h5>
+										<h5><b>Ingredients</b>: <span id="menu6" class="tagCheck">Beef, Noodles, Chicken Broth, Peanuts</span></h5>
 										<h5><b>Price</b>: $15</h5>
 									</div>
 
@@ -190,7 +191,7 @@
 
 			<div class="col-md-3 col-lg-3" style="float:right;padding-right:0px">
 				<div style="background-color:white;height:90vh;padding-bottom:50px">
-					<h2 style="text-align:center;margin-top:0px;padding-top:20px">Cart</h2>
+					<h2 style="text-align:center;margin-top:0px;padding-top:20px"><b>Cart</b></h2>
 					<h4 id="noItems" style="color:gray;text-align:center;padding-top:25px">No Items Currently In Cart</h4>
 
 					<table id="cart" style="width: 80%" align="center">
@@ -252,6 +253,37 @@
 			</td>
 		</tr>
 	</script>
+
+	<!-- Template for Adding Alert Tags -->
+	<script id="alertTagTemplate" type="text/x-handlebars-template">
+		<div style="background-color:#ed303c;width:50%;margin-top:5px;padding:1.5px;text-align:center">
+				<button class="removeTag" name="{{aTag}}" style="background-color:transparent;color:white;float:left;border:none">&#10006;</button>
+				<h4 style="display:inline;color:white">{{aTag}}</h4>
+		</div>
+	</script>
+
+	<!-- The Modal -->
+	<div class="modalAlert">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2 style="text-align: center"><b>Alert Tags</b></h2>
+			<h6 style="text-align:center">Adding Tags will highlight specific ingredients in red.</h6>
+			
+			<div style="text-align:center">
+				<input type="text" id="instructions" style="width:120px;height:35px;margin-bottom:20px" value="">
+				<button class="Button addTag" style="display:inline;">Add</button>
+			</div>
+			
+			<div id="alertTags" style="background-color:whitesmoke;text-align:center;margin:auto;padding:30px;padding-top:5px;width:75%">
+				<h3 style="margin-top:0px">Current Tags</h3>
+				<div id="curTags" class="container-fluid" align="center">
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 
 	<script src="../handlebars-v4.0.12.js"></script>

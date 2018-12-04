@@ -29,6 +29,7 @@
 				<a class="navbar-brand" href="../index.html">WeOrder</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a id ="restrictions" href="#">Alert Tags</a></li>
 				<li><a id="recentOrders" href="#">Recent Orders</a></li>
 				<li><a href="checkoutScreen.html">Cart</a></li>
 			</ul>
@@ -113,6 +114,43 @@
 			</td>
 		</tr>
 	</script>
+
+<!-- Template for Adding Alert Tags -->
+<script id="alertTagTemplate" type="text/x-handlebars-template">
+	<div style="background-color:#ed303c;width:50%;margin-top:5px;padding:1.5px;text-align:center">
+			<button class="removeTag" name="{{aTag}}" style="background-color:transparent;color:white;float:left;border:none">&#10006;</button>
+			<h4 style="display:inline;color:white">{{aTag}}</h4>
+	</div>
+</script>
+
+<!-- The Modal -->
+<div class="modalAlert">
+	<!-- Modal content -->
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<h2 style="text-align: center"><b>Alert Tags</b></h2>
+		<h6 style="text-align:center">Adding Tags will highlight specific ingredients in red.</h6>
+		
+		<div style="text-align:center">
+			<input type="text" id="instructions" style="width:120px;height:35px;margin-bottom:20px" value="">
+			<button class="Button addTag" style="display:inline;">Add</button>
+		</div>
+		
+		<div id="alertTags" style="background-color:whitesmoke;text-align:center;margin:auto;padding:30px;padding-top:5px;width:75%">
+			<h3 style="margin-top:0px">Current Tags</h3>
+			<div id="curTags" class="container-fluid" align="center">
+				
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
 	<script>
 		$("#confirmation").find("tr").eq(1).css("color", "red");
 
