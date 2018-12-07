@@ -1,78 +1,128 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>WeOrder</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+	<title>WeOrder</title>
 </head>
 
 <body style="margin:0px">
 
-    <div id="NavBar">
-        <div style="float:left;align-content: center;padding-left: 10px;padding-top: 15px">
-            <a href="../index.html" >WeOrder</a>
-        </div>
-        <div class="navBarItem-right">
-            <a href="checkoutScreen.html">Cart</a>
-        </div>
-    </div>
+	<nav class="navbar navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../index.html">WeOrder</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a id ="restrictions" href="#">Alert Tags</a></li>
+				<li><a id="recentOrders" href="#">Recent Orders</a></li>
+				<li><a href="checkoutScreen.html">Cart</a></li>
+			</ul>
+		</div>
+	</nav>
 
-<div id="review" align="center" style="background-color:white;color:black;font-family: Arial, Helvetica, sans-serif">
-    <h1>Payment Confirmation Page</h1>
-    <h2>Your Order has been Processed!</h2>
-    <p>Here is a summary of your order</p>
-    <div id="order">
-        
-    </div>
+	<div style="text-align:left;padding-left:20px; padding-top:20px">
+		<p> <a href="../index.html" style="color:#FF9C5B">Home</a> > <a href="restaurantList.html" style="color:#FF9C5B">Restaurant List</a> > <a href="menueList.html" style="color:#FF9C5B">Menu List</a> > <a href="checkoutScreen.html" style="color:#FF9C5B"> Checkout</a> > <b style="color:#ed303c">Confirmation</b> </p>
+	</div>
 
-    <p>Confirmation Number: C120</p>
-    
-    <div id="orders">
+	<div id="review" align="center" style="background-color:white;color:black;font-family: Arial, Helvetica, sans-serif">
+		<h1>Payment Confirmation Page</h1>
+		<h2>Your Order has been Processed!</h2>
+		<p>Here is a summary of your order</p>
+		<div id="order">
 
+		</div>
 
-    </div>
+		<p>Confirmation Number: C120</p>
 
-    <div>
-        <p>Instructions</p>
-        <p id="instruct">NA</p>
-    </div>
-    <form action="../index.html">
-        <button class="Button" id="deleteCart"type="submit">Return to Home Page</button>
-    </form>
-
-</div>
-<script>
-
-//Local Storage: Cart Data
-var orderData = JSON.parse(sessionStorage.getItem('orders'));
-
-var validOrder = JSON.parse(sessionStorage.getItem('orders'));
+		<div id="orders">
 
 
-// No Items Message + confirmation button   
-if(validOrder != null){
-    console.log("order data Length =" + orderData.length);
-    var latestOrder = orderData[orderData.length-1].prevOrder.split(',');
-    console.log("latestOrder length =" + latestOrder.length);
-    for(var i = 1; i <latestOrder.length; i++){
-        $("#orders").append("<p>"+latestOrder[i]+"</p>");
-        console.log("Latestorder =" + latestOrder[i]);
-    }
-    console.log(latestOrder);
+		</div>
 
-}
-else{
-   console.log("not working")
-}
-</script>
+		<div>
+			<p>Instructions</p>
+			<p id="instruct">NA</p>
+		</div>
+		<form action="../index.html">
+			<button class="Button" id="deleteCart" type="submit">Return to Home Page</button>
+		</form>
 
-<script>
-    var instruction = JSON.parse(sessionStorage.getItem('instr'));
-    var validInstruc = sessionStorage.getItem('instr');
-    console.log(validInstruc);
-    if(validInstruc != null){
-        $("#instruct").html(instruction[0].instra);
-    }
-</script>
+	</div>
+
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h3 style="text-align: center">Past Orders</h3>
+
+			<table id="recentOrderItems" style="width:90%" align="center">
+				<tr id="noRecentOrder">
+					<td>
+						<p style="text-align:center">No Past Orders</p>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+	<script src="../handlebars-v4.0.12.js"></script>
+
+	<!-- Template for Cart List-->
+	<script id="recentOrderTemplate" type="text/x-handlebars-template">
+		<tr>
+			<td style="text-align:center">
+				<p>{{[prevOrder]}}</p>
+			</td>
+		</tr>
+	</script>
+
+	<!-- Template for Adding Alert Tags -->
+	<script id="alertTagTemplate" type="text/x-handlebars-template">
+		<div style="background-color:#ed303c;width:50%;margin-top:5px;padding:1.5px;text-align:center">
+				<button class="removeTag" name="{{aTag}}" style="background-color:transparent;color:white;float:left;border:none">&#10006;</button>
+				<h4 style="display:inline;color:white">{{aTag}}</h4>
+		</div>
+	</script>
+
+	<!-- The Modal -->
+	<div class="modalAlert">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2 style="text-align: center"><b>Alert Tags</b></h2>
+			<h6 style="text-align:center">Adding Tags will highlight specific ingredients in red.</h6>
+			
+			<div style="text-align:center">
+				<input type="text" id="instructions" style="width:120px;height:35px;margin-bottom:20px" value="">
+				<button class="Button addTag" style="display:inline;">Add</button>
+			</div>
+			
+			<div id="alertTags" style="background-color:whitesmoke;text-align:center;margin:auto;padding:30px;padding-top:5px;width:75%">
+				<h3 style="margin-top:0px">Current Tags</h3>
+				<div id="curTags" class="container-fluid" align="center">
+				
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<script src="../payConfirmationPage.js"></script>
+
 </body>
+
 </html>

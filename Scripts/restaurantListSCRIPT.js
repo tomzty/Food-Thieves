@@ -1,12 +1,10 @@
-$(function() {
+/* $(function() {
     var restaurantTableTemplate = $("#address-template").html()
-
     var compiledTemplate = Handlebars.compile(restaurantTableTemplate)
 
-    // pass data to template
+    // load FOOD_DATA object
     var toHTML = compiledTemplate(restaurantData)
 
-    // add compiled html into page
-    $('.template-holder').html(toHTML)
+    $(".place-title").html(toHTML)
     console.log(restaurantData)
-})
+}) */

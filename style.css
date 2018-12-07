@@ -1,5 +1,7 @@
 .masterView{
     align-content: center;
+    margin: 0 auto;
+   /* width:80% *//* value of your choice which suits your alignment */
 }
 form {
     text-align: center;
@@ -13,6 +15,9 @@ a {
     font-family: Helvetica;
 }
 a:visited {
+    text-decoration: none;
+}
+a:hover {
     text-decoration: none;
 }
 a:link {
@@ -42,12 +47,27 @@ td {
 }
 */
 
-#NavBar{
-    width:100%;
-    height:70px;
-    background-color:#2699FB;
+nav{
     margin:0px;
-    color:white
+    padding-bottom:0px;
+}
+
+.navbar{
+    width:100%;
+    height:75px;
+    background-color:#FF5437;
+    padding:0px;
+    font-size: 29px;
+    color:white;
+    border: 0px;
+    margin-bottom:0px;
+}
+
+.navbar a{
+    color:white;
+    font-size:25px;
+    margin-top:10px;
+    font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
 }
 .navBarItem-right {
     text-align: right;
@@ -55,18 +75,29 @@ td {
     padding-right: 10px;
 }
 
+.jumbotron{
+    margin-top:0px;
+    margin:0px;
+    margin-bottom:0px;
+    background-size: cover;
+}
 
-
+/* Global setting for all ui buttons in project */
 .Button{
     width:60px;
     height:45px;
-    background-color:#2699FB;
+    font-size:0.75em;
+    background-color:#FF5437;
     border: none;
     color:white
 }
 
+.Button:hover {
+  background-color:#E54B31;
+}
+
 body{
-    background-color:#F1F9FF;
+    background-color:#EEEEEE;
     margin:0
 }
 
@@ -266,6 +297,20 @@ ul {
     height:45%
 }
 
+.modalAlert {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
 /* The Close Button */
 .close {
     color: #aaaaaa;
@@ -281,3 +326,19 @@ ul {
     cursor: pointer;
 }
 
+.restaurantList{
+    margin-bottom:30px;
+    background-color:white;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menuList{
+    background-color:white;
+    width:100%;
+    height:150px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.19);
+}
+
+.textShadow{
+    text-shadow: 1px 2px 3px #000000
+}
